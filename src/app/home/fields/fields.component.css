@@ -1,0 +1,28 @@
+.data-fields{
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #272449;
+}
+
+.fieldsHeader {
+    font-size: 1.4em;
+    color: white;
+}
+
+.data-fields{
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #272449;
+}
+
+.data-fields p{
+    padding-left: 10%;
+}
+
+.itemList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
