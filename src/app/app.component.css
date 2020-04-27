@@ -1,0 +1,17 @@
+.main-menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+app-menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #272449;
+    color: white;
+}
+
+.logSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
