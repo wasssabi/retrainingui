@@ -26,3 +26,29 @@
     column-gap: 10px;
     row-gap: 10px;
 }
+.product {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    background-color: white;
+    border-radius: 5%;
+}
+
+.product p{
+    padding-left: 10%;
+}
+
+.prodButtons {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+}
+.add-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 4.5em;
+    background-color: white;
+    border-radius: 5%;
+}
