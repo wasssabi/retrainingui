@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { FormsComponent } from "./forms.component";
 import { FormsFilterComponent } from './forms-filter/forms-filter.component';
+import { FormsItemComponent } from './forms-item/forms-item.component';
 
 @NgModule({
-  declarations: [FormsComponent, FormsFilterComponent],
+  declarations: [FormsComponent, FormsFilterComponent, FormsItemComponent],
   imports: [
     CommonModule
   ],
