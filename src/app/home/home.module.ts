@@ -3,20 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home.component';
 import { ItemComponent } from './item/item.component';
-import { MenuComponent } from './menu/menu.component';
 import { DescriptionComponent } from './description/description.component';
-import { FieldsComponent } from './fields/fields.component';
-import { FormsComponent } from './forms/forms.component';
+import { HomeFieldsContainerComponent } from './home-fields-container/home-fields-container.component';
+import { HomeFormsContainerComponent } from './home-forms-container/home-forms-container.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, 
-    ItemComponent, 
-    MenuComponent, 
+  declarations: [
+    HomeComponent, 
+    ItemComponent,
     DescriptionComponent, 
-    FieldsComponent, 
-    FormsComponent],
+    HomeFormsContainerComponent, 
+    HomeFieldsContainerComponent],
   imports: [
     CommonModule
   ],
