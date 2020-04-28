@@ -1,0 +1,27 @@
+ul {
+  list-style-type: none;
+}
+
+.filterContainer{
+  background-color: #272449;
+  color: #db8b14;
+  padding: 20px;
+}
+button {
+  background-color: #db8b14;
+  color: #272449;
+  border-radius: 3px;
+  border-color: #db8b14;
+}
+
+.centerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  background-color:#eeaa44;
+}
+
+
