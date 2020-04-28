@@ -1,4 +1,3 @@
-<p>display-fields works!</p>
     <div *ngFor="let temporaryField of temporaryFields" class="displayedField">
       <div class="fieldInfo">
       <h3>
@@ -10,18 +9,20 @@
             {{temporaryField.type}}
           </li>
           <li>
-            {{temporaryField.created}}
+            Created: {{temporaryField.created}}
           </li>
         </ul>
       </div>
     </div>
 
       <div class="btn-group-vertical buttons">
-        <button>Share</button>
+        <button>Share
+          <mat-icon>send</mat-icon>
+        </button>
 
-        <button>Edit</button>
+        <button>Edit<mat-icon>edit</mat-icon></button>
 
-        <button>Delete</button>
+        <button>Delete<mat-icon>delete</mat-icon></button>
       </div>
     </div>
 
