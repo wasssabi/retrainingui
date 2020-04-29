@@ -1,7 +1,16 @@
 <p class="fieldsHeader">Fields</p>
 <div class="itemList">
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
+  <div class="add-field">
+    <p>+</p>
+  </div>
+  <div *ngFor="let field of fields" class="product">
+    <div class="prodInfo">
+        <p>{{field.name}}</p>
+        <p>{{field.description}}</p>
+    </div>
+    <div class="prodButtons">
+        <button class="viewProd">View More</button>
+        <button class="shareProd">Share</button>
+    </div>
+  </div>
 </div>

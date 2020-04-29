@@ -1,7 +1,16 @@
 <p class="formsHeader">Forms</p>
 <div class="itemList">
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
+  <div class="add-form">
+    <p>+</p>
+  </div>
+  <div *ngFor="let form of forms" class="product">
+    <div class="prodInfo">
+        <p>{{form.name}}</p>
+        <p>{{form.description}}</p>
+    </div>
+    <div class="prodButtons">
+        <button class="viewProd">View More</button>
+        <button class="shareProd">Share</button>
+    </div>
+  </div>   
 </div>

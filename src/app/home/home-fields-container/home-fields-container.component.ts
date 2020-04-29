@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Field } from "src/app/home/field";
+import { HomeService } from "src/app/home/home.service";
+
 
 @Component({
   selector: 'home-fields-container',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-fields-container.component.css']
 })
 export class HomeFieldsContainerComponent implements OnInit {
+  fields: Field[];
+  constructor(
+    private homeService: HomeService
+  ) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getFields();
+  }
+  getFields(): void {
+    this.homeService.getField()
+    .subscribe(incomingField => this.fields = incomingField);
   }
 
 }
