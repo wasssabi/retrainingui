@@ -20,5 +20,10 @@ export const temporaryFields = [
     name: 'City',
     type: 'Autocomplete',
     created: 'Fri Apr 03 2020'
+  },
+  {
+    name: 'Name',
+    type: 'Text',
+    created: 'Fri Apr 05 2020'
   }
 ];
