@@ -12,4 +12,4 @@ import { FormsItemComponent } from './forms-item/forms-item.component';
   ],
   bootstrap: [FormsComponent]
 })
-export class FormsModule { }
+export class FormsModulePr { }
