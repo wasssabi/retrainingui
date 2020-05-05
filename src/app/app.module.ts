@@ -12,6 +12,7 @@ import { FieldsModule } from './fields/fields.module';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserRegistrationService } from './registration/user-registration.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { UserRegistrationService } from './registration/user-registration.servic
     FormsModulePr,
     FieldsModule,
     HttpClientModule
-  ],
+],
   providers: [UserRegistrationService],
   bootstrap: [AppComponent]
 })

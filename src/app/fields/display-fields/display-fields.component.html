@@ -1,27 +1,28 @@
-<p>display-fields works!</p>
-    <div *ngFor="let temporaryField of temporaryFields" class="displayedField">
+    <div *ngFor="let field of fields | fieldSearch: searching()" class="displayedField">
       <div class="fieldInfo">
       <h3>
-        {{ temporaryField .name }}
+        {{ field .name }}
       </h3>
       <div>
         <ul>
           <li>
-            {{temporaryField.type}}
+            {{field.type}}
           </li>
           <li>
-            {{temporaryField.created}}
+            Created: {{field.created | date:'longDate'}}
           </li>
         </ul>
       </div>
     </div>
 
       <div class="btn-group-vertical buttons">
-        <button>Share</button>
+        <button>Share
+          <mat-icon>send</mat-icon>
+        </button>
 
-        <button>Edit</button>
+        <button>Edit<mat-icon>edit</mat-icon></button>
 
-        <button>Delete</button>
+        <button>Delete<mat-icon>delete</mat-icon></button>
       </div>
     </div>
 

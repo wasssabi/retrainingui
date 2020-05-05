@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FieldsService } from 'src/app/fields/fields.service';
 
 @Component({
   selector: 'app-search-fields',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchFieldsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private fieldsService: FieldsService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  searching(event) {
+    this.fieldsService.addSearching(event);
   }
 
 }
