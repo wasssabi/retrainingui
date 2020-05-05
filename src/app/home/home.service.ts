@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Form } from "./form";
-import { Field } from "./field";
-import { FormList } from "./form-list";
-import { FieldList } from "./field-list";
+import { Form } from "src/app/form";
+import { Field } from "src/app/field";
+import { FormList } from "src/app/form-list";
+import { FieldList } from "src/app/field-list";
 import { Observable, of } from "rxjs";
 
 @Injectable({

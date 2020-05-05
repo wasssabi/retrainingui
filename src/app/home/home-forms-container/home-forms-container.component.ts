@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Form } from "src/app/home/form";
+import { Form } from "src/app/form";
 import { HomeService } from "src/app/home/home.service";
 
 @Component({

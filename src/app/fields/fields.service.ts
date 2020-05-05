@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Field } from "./field";
-import { FieldList } from "./field-list";
+import { Field } from "../field";
+import { FieldList } from "../field-list";
 import { Observable, of } from "rxjs";
 
 

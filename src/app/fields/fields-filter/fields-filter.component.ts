@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Field } from '../field';
+import { Field } from 'src/app/field';
 import { FieldsService } from '../fields.service';
 
 @Component({

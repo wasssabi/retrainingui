@@ -1,19 +1,16 @@
 :host {
     background-color: #272449;;
-    padding: 10px 10% 300px 10%;
+    padding: 10px 5% 300px 5%;
 }
 
-.fieldsHeader {
+/* :host * {
+    margin: 5px;
+} */
+
+.fields-header {
     font-size: 1.4em;
     color: white;
     font-weight: 500;
-}
-
-.itemList {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 10px;
-    row-gap: 10px;
 }
 
 .add-field {
