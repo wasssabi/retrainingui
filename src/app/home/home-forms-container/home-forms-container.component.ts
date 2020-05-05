@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Form } from "src/app/form";
 import { HomeService } from "src/app/home/home.service";
 
+declare let $: any;
+
 @Component({
   selector: 'home-forms-container',
   templateUrl: './home-forms-container.component.html',
@@ -14,6 +16,10 @@ export class HomeFormsContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    $(".Form").click( function() {
+      $("#addingItem").attr("elementType", "Form");
+      $("#addingItem").modal('show');
+    })
     this.getForms();
   }
   getForms(): void {

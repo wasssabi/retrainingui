@@ -1,27 +1,22 @@
-<div class="formsHeader">
-  <p>Forms</p>
-</div>
-<div class="itemList">
-  <div class="add-form">
-    <p>+</p>
-  </div>
-  <div *ngFor="let form of forms" class="product">
-    <div class="card">
+<p class="forms-header">Forms</p>
+<div class="container">
+  <div class="row">
+    <div class="Form col-sm-4 m-2">
+      <p>+</p>
+    </div>
+    <div *ngFor="let form of forms" class="card col-sm-4 m-2">
       <div class="card-header">
           <h3 class="card-title">
             {{form.name}}
           </h3>
       </div>
       <div class="card-body">
-        <p class="card-text">
-          {{form.description}}
-        </p>
+        <p class="card-text">{{form.description}}</p>
       </div>
       <div class="card-footer">
         <button class="btn btn-default">View <i class="fas fa-eye"></i></button>
         <button class="btn btn-default">Share <i class="fas fa-paper-plane"></i></button>
       </div>
-    </div> 
-  </div>  
+    </div>
+  </div>
 </div>
-

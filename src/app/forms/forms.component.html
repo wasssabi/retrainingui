@@ -7,15 +7,18 @@
       <div class="searchForms">
         <app-search-forms></app-search-forms>
       </div>
-      <div class="row">
-        <app-forms-item class="col-sm-6 my-2"></app-forms-item>
-        <app-forms-item class="col-sm-6 my-2"></app-forms-item>
-        <app-forms-item class="col-sm-6 my-2"></app-forms-item>
-        <app-forms-item class="col-sm-6 my-2"></app-forms-item>
-        <app-forms-item class="col-sm-6 my-2"></app-forms-item>
-        <app-forms-item class="col-sm-6 my-2"></app-forms-item>
+      <div  class="row">
+        <div *ngFor="let form of forms" class="form-item col-sm-6 my-2">
+          <h3>{{form.name}}</h3>
+          <p>{{form.description}}</p>
+          <p>Status</p>
+          <div class="button-list">
+              <button class="btn btn-default">View <i class="fas fa-eye"></i></button>
+              <button class="btn btn-default">Share <i class="fas fa-paper-plane"></i></button>
+              <button class="btn btn-default">Delete <i class="fas fa-dumpster"></i></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
