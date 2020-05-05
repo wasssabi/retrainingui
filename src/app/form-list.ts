@@ -1,6 +1,6 @@
 import { Form } from "./form";
 
-export const FormList: Form[] =
+export let FormList: Form[] =
 [
   {id:1, name:'form_item1', description:'description1'},
   {id:2, name:'item2', description:'description2'},

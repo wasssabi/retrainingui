@@ -3,17 +3,13 @@
     padding: 10px 5% 300px 5%;
 }
 
-/* :host * {
-    margin: 5px;
-} */
-
 .fields-header {
     font-size: 1.4em;
     color: white;
     font-weight: 500;
 }
 
-.add-field {
+.Field {
     display: flex;
     justify-content: center;
     align-items: center;

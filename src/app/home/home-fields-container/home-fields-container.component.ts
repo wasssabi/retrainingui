@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Field } from "src/app/field";
 import { HomeService } from "src/app/home/home.service";
 
+declare let $: any;
 
 @Component({
   selector: 'home-fields-container',
@@ -15,6 +16,10 @@ export class HomeFieldsContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    $(".Field").click( function() {
+      $("#addingItem").attr("elementType", "Field");
+      $("#addingItem").modal('show');
+    })
     this.getFields();
   }
   getFields(): void {
