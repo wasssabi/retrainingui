@@ -19,8 +19,8 @@ form.searchForm button {
   float: left;
   width: 20%;
   padding: 10px;
-  background: #272449;
-  color: #db8b14;
+  background: #44656f;
+  color: white;
   font-size: 17px;
   border: 1px solid grey;
   border-left: none;
@@ -28,8 +28,8 @@ form.searchForm button {
 }
 
 form.searchForm button:hover {
-  background: #db8b14;
-  color: #272449;
+  background: #023246;
+  color: white;
 }
 
 form.searchForm::after {

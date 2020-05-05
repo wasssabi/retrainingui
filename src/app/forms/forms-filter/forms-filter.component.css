@@ -2,11 +2,16 @@ ul {
   list-style-type: none;
 }
 
-.form-container{
+.filter-container{
   background-color: #023246;
   color: #d3d4cd;
   padding: 20px;
-  margin-top:20px; 
+}
+button {
+  background-color: #d3d4cd;
+  color: 	#023246;
+  border-radius: 3px;
+  border-color: #d3d4cd;
 }
 
 .center-button {
@@ -15,15 +20,8 @@ ul {
   align-items: center;
 }
 
-.btn {
-  background-color: #d3d4cd;
-  color: #023246;
-  border-radius: 3px;
-  border-color: #d3d4cd;
-}
 button:hover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color:#d3d4cd;
 }
+
+
