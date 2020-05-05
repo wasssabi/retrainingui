@@ -1,8 +1,8 @@
 ul {
   list-style-type: none;
 }
-.displayedField {
-  background-color: #db8b14;
+.displayed-field {
+  background-color: #d4d5d0;
   margin: 20px 0;
   padding: 20px;
   border-radius: 3px;
@@ -10,20 +10,14 @@ ul {
   justify-content: space-between;
 }
 
-button {
-  background-color: #272449;
+.btn {
+  background-color: #43656f;
   color: white;
   border-radius: 3px;
-  border-color: #272449;
+  border-color: #43656f;
   margin: 5px 10px;
-  width: 90px;
-  display: flex;
-  justify-content: space-between;
 }
 
-.icons {
-    vertical-align: bottom;
-}
 
 
 
