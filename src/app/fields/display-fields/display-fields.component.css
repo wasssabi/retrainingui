@@ -21,7 +21,7 @@ button {
   justify-content: space-between;
 }
 
-mat-icon {
+.icons {
     vertical-align: bottom;
 }
 
