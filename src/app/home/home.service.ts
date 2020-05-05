@@ -17,4 +17,12 @@ export class HomeService {
   getForm(): Observable<Form[]> {
     return of(FormList);
   }
+
+  addItem(itemType, newtitle, description) {
+    if (itemType === "Field") {
+      FieldList.push({name: newtitle, type: description, created: new Date()})
+    }else {
+      FormList.push({id: FormList.length, name: newtitle, description: description})
+    }
+  }
 }
