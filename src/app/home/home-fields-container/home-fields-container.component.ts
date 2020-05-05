@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Field } from "src/app/home/field";
+import { Field } from "src/app/field";
 import { HomeService } from "src/app/home/home.service";
 
 
