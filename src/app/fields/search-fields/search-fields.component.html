@@ -1,4 +1,4 @@
 <form class="searchForm">
-  <input type="text" placeholder="Search.." name="search">
-  <button type="submit">Search</button>
+  <input #search type="text" placeholder="Search.." name="search" (keyup)="searching(search.value)">
+<!--<button type="submit" (keyup)="searching(search.value)>Search</button> -->
 </form>

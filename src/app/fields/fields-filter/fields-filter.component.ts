@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Field } from '../field';
+import { FieldsService } from '../fields.service';
 
 @Component({
   selector: 'app-fields-filter',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FieldsFilterComponent implements OnInit {
 
-  constructor() { }
+  @Input() fields : Field[];
+
+  constructor(
+    private fieldsService: FieldsService
+  ) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

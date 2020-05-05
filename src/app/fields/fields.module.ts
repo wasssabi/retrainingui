@@ -7,9 +7,18 @@ import { DisplayFieldsComponent } from './display-fields/display-fields.componen
 import { SearchFieldsComponent } from './search-fields/search-fields.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { FieldSearchPipe } from './search-fields/field-search.pipe';
+
 
 @NgModule({
-  declarations: [ FieldsComponent, FieldsFilterComponent, DisplayFieldsComponent, SearchFieldsComponent],
+  declarations: [
+    FieldsComponent,
+    FieldsFilterComponent,
+    DisplayFieldsComponent,
+    SearchFieldsComponent,
+    FieldSearchPipe
+
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
