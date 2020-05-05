@@ -1,18 +1,11 @@
 :host {
     background-color: #d3d4cd;
-    padding: 10px 10%;
+    padding: 10px 5% 300px 5%;
 }
 
-:host .formsHeader {
+.forms-header {
     font-size: 1.4em;
     font-weight: 500;
-}
-
-.itemList {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 10px;
-    row-gap: 10px;
 }
 
 .Form {
