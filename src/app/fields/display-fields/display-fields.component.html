@@ -1,5 +1,5 @@
-    <div *ngFor="let field of fields | fieldSearch: searching()" class="displayedField">
-      <div class="fieldInfo">
+    <div *ngFor="let field of fields | fieldSearch: searching()" class="displayed-field">
+      <div>
       <h3>
         {{ field .name }}
       </h3>
@@ -16,11 +16,9 @@
     </div>
 
       <div class="btn-group-vertical buttons">
-        <button>Share</button>
-
-        <button>Edit</button>
-
-        <button>Delete</button>
+        <button class="btn btn-default">Share <i class="fas fa-paper-plane"></i></button>
+        <button class="btn btn-default">Edit <i class="far fa-edit"></i></button>
+        <button class="btn btn-default">Delete <i class="fas fa-dumpster"></i></button>
       </div>
     </div>
 

@@ -1,5 +1,5 @@
 :host {
-    background-color: #272449;;
+    background-color: #023246;
     padding: 10px 5% 300px 5%;
 }
 
@@ -28,7 +28,8 @@
 }
 
 .btn {
-    background-color: #db8b14;
+    background-color: #44656f;
+    color: white;
 }
 
 .card-footer {

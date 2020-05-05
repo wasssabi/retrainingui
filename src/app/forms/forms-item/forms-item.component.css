@@ -1,16 +1,18 @@
 .form-item {
     display: grid;
     grid-template-rows: 10fr 20fr;
-    background-color: #db8b14;
+    background-color: #d3d4cd;
     border-radius: 3%;
     padding: 5%;
 }
 
 .button-list {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+
 }
 .btn {
-    background-color: aliceblue;
+    background-color: #44656f;
+    color: white;
 }

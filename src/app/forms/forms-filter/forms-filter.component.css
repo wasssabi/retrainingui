@@ -2,27 +2,30 @@ ul {
   list-style-type: none;
 }
 
-.filterFormContainer{
-  background-color: #272449;
-  color: #db8b14;
+.form-container{
+  background-color: #023246;
+  color: #d3d4cd;
   padding: 20px;
-  margin:20px;
-}
-button {
-  background-color: #db8b14;
-  color: #272449;
-  border-radius: 3px;
-  border-color: #db8b14;
+  margin-top:20px; 
 }
 
-.centerButton {
+.center-button {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.btn {
+  background-color: #d3d4cd;
+  color: #023246;
+  border-radius: 3px;
+  border-color: #d3d4cd;
+}
 button:hover {
-  background-color:#eeaa44;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#d3d4cd;
 }
 
 
