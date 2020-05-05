@@ -2,8 +2,9 @@
     display: grid;
     grid-template-rows: 10fr 20fr;
     background-color: #d3d4cd;
-    border-radius: 3%;
-    padding: 5%;
+    border-radius: 2%;
+    padding: 4%;
+    margin: 10px 0 0 0;
 }
 
 .button-list {
