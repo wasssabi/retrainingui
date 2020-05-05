@@ -1,23 +1,31 @@
+.logo {
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    font-size: 1.4em;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color:#272449;;
+    color: white;
+}
+
 .options {
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
 
-.logo {
-    padding-left: 20%;
-}
-
-.navList {
+.navbar-nav {
     display: grid;
-    list-style: none;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); 
     justify-items: center;
     align-items: center;
 }
 
-.options {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+.btn {
+    background-color: white;
 }
 
 .logSection {

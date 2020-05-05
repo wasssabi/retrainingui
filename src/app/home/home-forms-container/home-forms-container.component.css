@@ -1,41 +1,20 @@
-.data-forms{
-    padding-left: 10%;
-    padding-right: 10%;
+:host {
     background-color: #db8b14;
+    padding: 10px 10%;
 }
 
-.formsHeader {
+:host .formsHeader {
     font-size: 1.4em;
-}
-
-.data-forms p{
-    padding-left: 10%;
+    font-weight: 500;
 }
 
 .itemList {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
     column-gap: 10px;
     row-gap: 10px;
 }
-.product {
-    display: grid;
-    grid-template-rows: 5fr 1fr;
-    background-color: white;
-    border-radius: 5%;
-}
 
-.product p{
-    padding-left: 10%;
-}
-
-.prodButtons {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-
-}
 .add-form {
     display: flex;
     justify-content: center;
@@ -44,4 +23,17 @@
     font-size: 4.5em;
     background-color: white;
     border-radius: 5%;
+}
+
+.card {
+    border-radius: 5%;
+}
+
+.btn {
+    background-color:#fbdb48;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
 }
