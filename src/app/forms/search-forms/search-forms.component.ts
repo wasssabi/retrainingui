@@ -15,8 +15,7 @@ export class SearchFormsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searching(event) {
-    this.formsService.addSearching(event);
+  searching(value: string): void {
+    this.formsService.addSearching(value);
   }
-
 }

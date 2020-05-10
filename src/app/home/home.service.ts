@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Form } from "src/app/form";
+import { Form, FormStatusEnum } from "src/app/form";
 import { Field } from "src/app/field";
 import { FormList } from "src/app/form-list";
 import { FieldList } from "src/app/field-list";
@@ -18,11 +18,17 @@ export class HomeService {
     return of(FormList);
   }
 
-  addItem(itemType, newtitle, description) {
+  addItem(itemType, newTitle, description) {
     if (itemType === "Field") {
-      FieldList.push({name: newtitle, type: description, created: new Date()})
-    }else {
-      FormList.push({id: FormList.length, name: newtitle, description: description})
+      FieldList.push({name: newTitle, type: description, created: new Date()})
+    } else {
+      FormList.push({
+        id: FormList.length, 
+        name: newTitle, 
+        description: description,
+        status: FormStatusEnum.DRAFT,
+        date: new Date().toISOString()
+      })
     }
   }
 }

@@ -1,7 +1,3 @@
-ul {
-  list-style-type: none;
-}
-
 .filter-container{
   background-color: #023246;
   color: #d3d4cd;
@@ -23,5 +19,3 @@ button {
 button:hover {
   background-color:#d3d4cd;
 }
-
-

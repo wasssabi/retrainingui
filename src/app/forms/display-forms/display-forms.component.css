@@ -1,0 +1,32 @@
+.header {
+  padding-top: 10px;
+}
+
+.row {
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.card {
+  border-radius: 5%;
+  background-color: #d4d5d0;
+  padding: 10px;
+}
+
+.btn {
+  background-color:#44656f;
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.card-description {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

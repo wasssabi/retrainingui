@@ -1,12 +1,4 @@
-body {
-  font-family: Arial;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-form.searchForm input[type=text] {
+form.search-form input[type=text] {
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
@@ -15,7 +7,7 @@ form.searchForm input[type=text] {
   background: #f1f1f1;
 }
 
-form.searchForm button {
+form.search-form button {
   float: left;
   width: 20%;
   padding: 10px;
@@ -27,12 +19,12 @@ form.searchForm button {
   cursor: pointer;
 }
 
-form.searchForm button:hover {
+form.search-form button:hover {
   background: #023246;
   color: white;
 }
 
-form.searchForm::after {
+form.search-form::after {
   content: "";
   clear: both;
   display: table;
