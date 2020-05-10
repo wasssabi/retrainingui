@@ -1,7 +1,7 @@
 <p class="fields-header">Fields</p>
 <div class="container">
   <div class="row">
-    <div class="Field col-sm-4 m-2">
+    <div class="Field col-sm-4 m-2" (click)="open(content)">
       <p>+</p>
     </div>
     <div *ngFor="let field of fields" class="card col-sm-4 m-2">
@@ -22,5 +22,33 @@
   </div>
 </div>
 
-
-
+<ng-template #content let-fieldModal>
+  <div class="modal-header">
+    <h4 class="modal-title">New Field</h4>
+    <button type="button" class="close" aria-label="Close" (click)="fieldModal.dismiss('closed')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+          <label >Title</label>
+          <input [(ngModel)]="fieldModal.name" name="name" type="text" class="form-control" placeholder="Add Title">
+      </div>
+      <div class="form-group">
+        <label>Field Type</label>
+        <select [(ngModel)]="fieldModal.type" name="type" class="form-control">
+          <option *ngFor="let type of fieldType">{{type}}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" type="button" (click)="fieldModal.dismiss('closed')">
+      Cancel
+    </button>
+    <button class="btn btn-primary" type="button" (click)="fieldModal.close(fieldModal)">
+      Add
+    </button>
+  </div>
+</ng-template>
