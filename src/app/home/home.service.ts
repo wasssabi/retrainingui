@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Form } from "../form";
 import { Field } from "../field";
 import { FormList } from "../form-list";
@@ -17,9 +18,18 @@ export class HomeService {
   getForm(): Observable<Form[]> {
     return of(FormList);
   }
-
-  addItem(itemType, item) {
-    let targetList = (itemType === "Field") ? FieldList : FormList;
-    targetList.push(item);
+  
+  addItem(itemType, newTitle, description) {
+    if (itemType === "Field") {
+      FieldList.push({name: newTitle, type: description, created: new Date()})
+    } else {
+      FormList.push({
+        id: FormList.length, 
+        name: newTitle, 
+        description: description,
+        status: FormStatusEnum.DRAFT,
+        date: new Date().toISOString()
+      })
+    }
   }
 }

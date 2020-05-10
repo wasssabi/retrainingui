@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Form } from 'src/app/form';
-import { HomeService } from "src/app/home/home.service";
 
 @Component({
   selector: 'app-forms',
@@ -9,17 +7,9 @@ import { HomeService } from "src/app/home/home.service";
 })
 export class FormsComponent implements OnInit {
 
-  forms : Form[];
-
-  constructor(private homeService: HomeService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getForms();
+  
   }
-
-  getForms(): void {
-    this.homeService.getForm()
-    .subscribe(incomingForm => this.forms = incomingForm);
-  }
-
 }
