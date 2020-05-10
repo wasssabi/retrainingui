@@ -27,8 +27,9 @@ export class HomeFieldsContainerComponent implements OnInit {
   }
 
   getFields(): void {
-    this.homeService.getField()
-    .subscribe(incomingField => this.fields = incomingField);
+    this.homeService
+      .getField()
+      .subscribe(incomingField => this.fields = incomingField);
   }
 
   open(content) {
@@ -39,7 +40,7 @@ export class HomeFieldsContainerComponent implements OnInit {
           type: result.type,
           created: new Date()
         }
-        this.homeService.addItem("Field", this.newField);
+        this.homeService.addFieldItem(this.newField);
       }
     }, reason => {
       console.log(reason);
