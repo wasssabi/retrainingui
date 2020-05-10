@@ -1,7 +1,7 @@
 <p class="forms-header">Forms</p>
 <div class="container">
   <div class="row">
-    <div class="Form col-sm-4 m-2">
+    <div class="Form col-sm-4 m-2" (click)="open(formContent)">
       <p>+</p>
     </div>
     <div *ngFor="let form of forms" class="card col-sm-4 m-2">
@@ -20,3 +20,32 @@
     </div>
   </div>
 </div>
+
+<ng-template #formContent let-formModal>
+  <div class="modal-header">
+    <h4 class="modal-title">New Form</h4>
+    <button type="button" class="close" aria-label="Close" (click)="formModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+          <label >Title</label>
+          <input ngbAutofocus [(ngModel)]="formModal.name" name="name" type="text" class="form-control" placeholder="Add Title" required>
+      </div>
+      <div class="form-group">
+          <label>Form Description</label>
+          <textarea [(ngModel)]="formModal.description" name="description" class="form-control" rows="3" placeholder="add description" required></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" type="button" (click)="formModal.dismiss()">
+      Cancel
+    </button>
+    <button class="btn btn-primary" type="submit" (click)="formModal.close(formModal)">
+      Add
+    </button>
+  </div>
+</ng-template>
