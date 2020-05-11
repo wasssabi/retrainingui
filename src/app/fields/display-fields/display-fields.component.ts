@@ -25,13 +25,13 @@ export class DisplayFieldsComponent implements OnInit {
     .subscribe(incomingField => this.fields = incomingField);
   }
 
- /* sortFields(): void {
-    this.fieldsService.getField()
-    .subscribe(incomingField => this.fields = incomingField.sort((a: any, b: any) => a.name - b.name));
-  }
-*/
   searching(): string {
     return this.fieldsService.getSearch();
   }
+
+ /* removeField (id:number) {
+    this.fieldsService.removeField(id)
+  }
+  */
 
 }

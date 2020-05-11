@@ -3,9 +3,6 @@ import { Field } from "../field";
 import { FieldList } from "../field-list";
 import { Observable, of } from "rxjs";
 
-
-
-
 @Injectable ({
   providedIn: 'root'
   })
@@ -13,20 +10,23 @@ import { Observable, of } from "rxjs";
   export class FieldsService {
     constructor() {}
 
-    searchString;
+    private searchString: string;
 
     getField(): Observable<Field[]> {
       return of(FieldList);
     }
 
-    addSearching(input) {
+    getFields(): Field [] {
+      return FieldList;
+    }
+
+    addSearching(input): void {
       this.searchString = input;
     }
 
-    getSearch(){
+    getSearch(): string{
       return this.searchString;
     }
-
 
 
   }

@@ -17,6 +17,7 @@ export class SearchFieldsComponent implements OnInit {
 
   searching(event) {
     this.fieldsService.addSearching(event);
+    event.stopPropagation();
   }
 
 }

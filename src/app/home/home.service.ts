@@ -9,7 +9,7 @@ import { Observable, of } from "rxjs";
   providedIn: 'root'
 })
 export class HomeService {
-  
+
   constructor() { }
   getField(): Observable<Field[]> {
     return of(FieldList);
@@ -20,7 +20,7 @@ export class HomeService {
 
   addItem(itemType, newtitle, description) {
     if (itemType === "Field") {
-      FieldList.push({name: newtitle, type: description, created: new Date()})
+      FieldList.push({id: FieldList.length, name: newtitle, type: description, created: new Date()})
     }else {
       FormList.push({id: FormList.length, name: newtitle, description: description})
     }
