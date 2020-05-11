@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Form } from "src/app/form";
-import { HomeService } from "src/app/home/home.service";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
+import { Form, FormStatusEnum } from '../../form';
+import { HomeService } from '../home.service';
 
 @Component({
   selector: 'home-forms-container',
@@ -31,9 +30,11 @@ export class HomeFormsContainerComponent implements OnInit {
         this.newForm = {
           id: 1, 
           name: result.name, 
-          description: result.description
+          description: result.description,
+          status: FormStatusEnum.DRAFT,
+          date: new Date().toISOString()
         };
-        this.homeService.addItem("Form", this.newForm);
+        this.homeService.addFormItem(this.newForm);
       }
     }, reason => {
       console.log(reason);
