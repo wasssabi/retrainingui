@@ -63,7 +63,7 @@ export class FormsFilterComponent implements OnInit {
     });
   }
 
-  open(content) {
+  openCreationModal(content: any): void {
     this.ngbModal.open(content)
     .result.then(result => {
       this.newForm = {
@@ -74,7 +74,7 @@ export class FormsFilterComponent implements OnInit {
         date: new Date()
       };
       this.homeService.addFormItem(this.newForm);
-      this.addingForm.reset();
+      this.addingForm.reset({status: FormStatusEnum.DRAFT});
     }, reason => {
       console.log(reason);
     })

@@ -38,11 +38,11 @@
     </li>
   </ul>
   <div class="center-button">
-    <button class="btn btn-default" (click)="open(formContent)">Create Form</button>
+    <button class="btn btn-default" (click)="openCreationModal(filterFormContent)">Create Form</button>
   </div>
 </div>
 
-<ng-template #formContent let-formModal>
+<ng-template #filterFormContent let-formModal>
   <div class="modal-header">
     <h4 class="modal-title">New Form</h4>
     <button type="button" class="close" aria-label="Close" (click)="formModal.dismiss()">

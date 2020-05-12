@@ -48,7 +48,7 @@ export class HomeFormsContainerComponent implements OnInit {
         date: new Date()
       };
       this.homeService.addFormItem(this.newForm);
-      this.addingForm.reset();
+      this.addingForm.reset({status: FormStatusEnum.DRAFT});
     }, reason => {
       console.log(reason);
     })
