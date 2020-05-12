@@ -1,12 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3 mt-4">
-      <app-forms-filter></app-forms-filter>
+      <app-forms-filter 
+        [isDraft]="draftStatus" 
+        (isDraftChange)="this.draftStatus=$event"
+        [isPublished]="publishedStatus"
+        (isPublishedChange)="this.publishedStatus=$event"
+        [isSortByName]="sortByName"
+        (isSortByNameChange)="this.sortByName=$event"
+        [isSortByDate]="sortByDate"
+        (isSortByDateChange)="this.sortByDate=$event"
+      >
+      </app-forms-filter>
     </div>
     <div class="col-sm-9">
       <div class="col-sm-12 display-form">
         <app-search-forms></app-search-forms>
-        <app-display-forms></app-display-forms>
+        <app-display-forms 
+          [filterStatuses]="filterStatuses" 
+          [isSortByName]="sortByName"
+          [isSortByDate]="sortByDate">
+        </app-display-forms>
       </div>     
     </div>
   </div>

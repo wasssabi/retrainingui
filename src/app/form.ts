@@ -8,5 +8,5 @@ export interface Form {
   name: string;
   description: string;
   status: FormStatusEnum;
-  date: string;
+  date: Date;
 }
