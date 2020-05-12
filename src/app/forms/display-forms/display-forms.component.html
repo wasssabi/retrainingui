@@ -1,0 +1,27 @@
+<div class="row col-sm-12"> 
+  <div *ngFor="let form of forms" class="col-sm-6 p-2">
+    <div class="card">
+      <div class="header">
+        <h3 class="card-title">
+          {{form.name}}
+        </h3>
+      </div>
+      <div class="card-body">
+        <p class="card-description">{{form.description}}</p>
+        <p>Status: {{form.status}}</p>
+        <p>Created at: {{form.date}}</p>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-default">
+          View <i class="fas fa-eye"></i>
+        </button>
+        <button class="btn btn-default">
+          Share <i class="fas fa-paper-plane"></i>
+        </button>
+        <button class="btn btn-default">
+          Delete <i class="fas fa-dumpster"></i>
+        </button>
+      </div>
+    </div>
+  </div>  
+</div>

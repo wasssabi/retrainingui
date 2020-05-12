@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Field } from "src/app/field";
 import { HomeService } from "src/app/home/home.service";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { FieldType } from "./fieldType";
 
-declare let $: any;
+
 
 @Component({
   selector: 'home-fields-container',
@@ -10,21 +12,38 @@ declare let $: any;
   styleUrls: ['./home-fields-container.component.css']
 })
 export class HomeFieldsContainerComponent implements OnInit {
+
+  fieldType = FieldType;
+  newField: Field;
   fields: Field[];
+
   constructor(
-    private homeService: HomeService
+    private homeService: HomeService,
+    private ngbModal: NgbModal
   ) { }
 
   ngOnInit() {
-    $(".Field").click( function() {
-      $("#addingItem").attr("elementType", "Field");
-      $("#addingItem").modal('show');
-    })
     this.getFields();
   }
+
   getFields(): void {
-    this.homeService.getField()
-    .subscribe(incomingField => this.fields = incomingField);
+    this.homeService
+      .getField()
+      .subscribe(incomingField => this.fields = incomingField);
   }
 
+  open(content) {
+    this.ngbModal.open(content).result.then(result => {
+      if (result.name) {
+        this.newField = {
+          name: result.name,
+          type: result.type,
+          created: new Date()
+        }
+        this.homeService.addFieldItem(this.newField);
+      }
+    }, reason => {
+      console.log(reason);
+    });
+  }
 }
