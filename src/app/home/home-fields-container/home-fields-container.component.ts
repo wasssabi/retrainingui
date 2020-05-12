@@ -36,6 +36,7 @@ export class HomeFieldsContainerComponent implements OnInit {
     this.ngbModal.open(content).result.then(result => {
       if (result.name) {
         this.newField = {
+          id: 1,
           name: result.name,
           type: result.type,
           created: new Date()
