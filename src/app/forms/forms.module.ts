@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { FormsComponent } from "./forms.component";
 import { FormsFilterComponent } from './forms-filter/forms-filter.component';
@@ -18,11 +18,12 @@ import { FormOrderByPipe } from './display-forms/form-order.pipe';
     SearchFormsComponent,
     FormSearchPipe,
     FormFilterPipe,
-    FormOrderByPipe    
+    FormOrderByPipe
   ],
   imports: [
     CommonModule,
-    FormsModule    
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FormsModulePr { }
