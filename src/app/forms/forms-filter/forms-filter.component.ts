@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { Form, FormStatusEnum } from '../../form';
 import { HomeService } from '../../home/home.service';
@@ -21,14 +22,18 @@ export class FormsFilterComponent implements OnInit {
   @Output('isSortByNameChange') isSortByNameEmitter: EventEmitter<boolean> = new EventEmitter();
   @Output('isSortByDateChange') isSortByDateEmitter: EventEmitter<boolean> = new EventEmitter();
 
+  addingForm: FormGroup;
+  formStatuses = Object.values(FormStatusEnum);
   newForm: Form;
   
   constructor(
     private homeService: HomeService,
-    private ngbModal: NgbModal
+    private ngbModal: NgbModal,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
+    this.generateReactForm();
   }
   changePublishedFilter(value: boolean) {
     this.isPublishedStatus = value;
@@ -50,20 +55,26 @@ export class FormsFilterComponent implements OnInit {
     this.isSortByDateEmitter.emit(value);
   }
 
-  openCreationModal(content: any): void {
-    this.ngbModal
-    .open(content)
+  generateReactForm() {
+    this.addingForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      status: [FormStatusEnum.DRAFT],
+      description: ['']
+    });
+  }
+
+  open(content) {
+    this.ngbModal.open(content)
     .result.then(result => {
-      if (result.name) {
-        this.newForm = {
-          id: 1, 
-          name: result.name, 
-          description: result.description,
-          status: FormStatusEnum.DRAFT,
-          date: new Date()
-        };
-        this.homeService.addFormItem(this.newForm);
-      }
+      this.newForm = {
+        id: 1, 
+        name: this.addingForm.get("title").value, 
+        description: this.addingForm.get("description").value,
+        status: this.addingForm.get("status").value,
+        date: new Date()
+      };
+      this.homeService.addFormItem(this.newForm);
+      this.addingForm.reset();
     }, reason => {
       console.log(reason);
     })

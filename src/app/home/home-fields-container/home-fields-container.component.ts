@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+
+
 import { Field } from "src/app/field";
 import { HomeService } from "src/app/home/home.service";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { FieldType } from "./fieldType";
-
 
 
 @Component({
@@ -13,17 +15,21 @@ import { FieldType } from "./fieldType";
 })
 export class HomeFieldsContainerComponent implements OnInit {
 
+  addingForm: FormGroup;
+
   fieldType = FieldType;
   newField: Field;
   fields: Field[];
 
   constructor(
     private homeService: HomeService,
-    private ngbModal: NgbModal
+    private ngbModal: NgbModal,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
     this.getFields();
+    this.generateReactForm();
   }
 
   getFields(): void {
@@ -32,17 +38,23 @@ export class HomeFieldsContainerComponent implements OnInit {
       .subscribe(incomingField => this.fields = incomingField);
   }
 
+  generateReactForm() {
+    this.addingForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      type: ['']
+    });
+  }
+
   open(content) {
     this.ngbModal.open(content).result.then(result => {
-      if (result.name) {
-        this.newField = {
-          id: 1,
-          name: result.name,
-          type: result.type,
-          created: new Date()
-        }
-        this.homeService.addFieldItem(this.newField);
-      }
+      this.newField = {
+        id: 1, 
+        name: this.addingForm.get('title').value, 
+        type: this.addingForm.get('type').value,
+        created: new Date()
+      };
+      this.homeService.addFieldItem(this.newField);
+      this.addingForm.reset();
     }, reason => {
       console.log(reason);
     });

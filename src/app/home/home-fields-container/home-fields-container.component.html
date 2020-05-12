@@ -30,14 +30,14 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="addingForm">
       <div class="form-group">
           <label >Title</label>
-          <input [(ngModel)]="fieldModal.name" name="name" type="text" class="form-control" placeholder="Add Title">
+          <input type="text" class="form-control" formControlName="title" placeholder="Add Title">
       </div>
       <div class="form-group">
         <label>Field Type</label>
-        <select [(ngModel)]="fieldModal.type" name="type" class="form-control">
+        <select class="form-control" formControlName="type">
           <option *ngFor="let type of fieldType">{{type}}</option>
         </select>
       </div>
@@ -47,7 +47,7 @@
     <button class="btn btn-default" type="button" (click)="fieldModal.dismiss('closed')">
       Cancel
     </button>
-    <button class="btn btn-primary" type="button" (click)="fieldModal.close(fieldModal)">
+    <button class="btn btn-primary" type="submit" [disabled]="addingForm.invalid" (click)="fieldModal.close()">
       Add
     </button>
   </div>
