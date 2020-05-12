@@ -11,7 +11,7 @@ import { Observable, of } from "rxjs";
   providedIn: 'root'
 })
 export class HomeService {
-  
+
   constructor() { }
   getField(): Observable<Field[]> {
     return of(FieldList);
