@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
-import { Form, FormStatusEnum } from "../form";
-import { Field } from "../field";
-import { FormList } from "../form-list";
-import { FieldList } from "../field-list";
-
-import { Observable, of } from "rxjs";
+import { Form } from '../form';
+import { Field } from '../field';
+import { FormList, deleteStorageFormItem } from '../form-list';
+import { FieldList } from '../field-list';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +21,17 @@ export class HomeService {
   
   addFormItem(item: Form): void {
     FormList.push(item);
+    console.log(FormList);
   }
 
   addFieldItem(item: Field): void {
     FieldList.push(item);
+  }
+
+  deleteFormItem(id: number): void {
+    deleteStorageFormItem(id);
+  }
+
+  shareFormItem(id: number): void {
   }
 }

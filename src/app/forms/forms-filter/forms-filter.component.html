@@ -1,18 +1,75 @@
 <div class="filter-container">
   <span>Sort</span>
   <ul>
-    <li><input type="checkbox"> By Name</li>
-	<li><input type="checkbox"> By Date</li>
+    <li>
+      <input 
+        type="checkbox"
+        [checked]="isSortByName" 
+        (change)="changeSortByName($event.target.checked)"
+      > 
+        By Name
+    </li>
+    <li>
+      <input 
+        type="checkbox"
+        [checked]="isSortByDate" 
+        (change)="changeSortByDate($event.target.checked)"
+      > 
+        By Date
+    </li>
   </ul>
   <span>Status</span>
   <ul>
-    <li><input type="checkbox"> Published</li>
-    <li><input type="checkbox"> Draft</li>
+    <li>
+      <input 
+        type="checkbox" 
+        [checked]="isPublishedStatus" 
+        (change)="changePublishedFilter($event.target.checked)"
+      > 
+        Published
+    </li>
+    <li>
+      <input 
+        type="checkbox" 
+        [checked]="isDraftStatus" 
+        (change)="changeDraftFilter($event.target.checked)"
+      > 
+        Draft
+    </li>
   </ul>
   <div class="center-button">
-    <button class="btn btn-default">Create Form</button>
+    <button class="btn btn-default" (click)="openCreationModal(filterFormContent)">Create Form</button>
   </div>
 </div>
+
+<ng-template #filterFormContent let-formModal>
+  <div class="modal-header">
+    <h4 class="modal-title">New Form</h4>
+    <button type="button" class="close" aria-label="Close" (click)="formModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label >Title</label>
+        <input ngbAutofocus [(ngModel)]="formModal.name" name="name" type="text" class="form-control" placeholder="Add Title" required>
+      </div>
+      <div class="form-group">
+        <label>Form Description</label>
+        <textarea [(ngModel)]="formModal.description" name="description" class="form-control" rows="3" placeholder="add description" required></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" type="button" (click)="formModal.dismiss()">
+      Cancel
+    </button>
+    <button class="btn btn-primary" type="submit" (click)="formModal.close(formModal)">
+      Add
+    </button>
+  </div>
+</ng-template>
 
 
 

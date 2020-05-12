@@ -32,7 +32,7 @@ export class HomeFormsContainerComponent implements OnInit {
           name: result.name, 
           description: result.description,
           status: FormStatusEnum.DRAFT,
-          date: new Date().toISOString()
+          date: new Date()
         };
         this.homeService.addFormItem(this.newForm);
       }
