@@ -2,7 +2,9 @@
 
 export const FieldType = [
     "Number",
-    "String",
-    "Boolean",
-    "Date"
+    "Text",
+    "TextArea",
+    "Checkbox",
+    "Radio",
+    "Autocomplete"
 ]

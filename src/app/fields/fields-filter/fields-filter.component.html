@@ -1,16 +1,69 @@
 <div class="filter-container">
   <span>Sort</span>
   <ul>
-    <li><input type="checkbox"> By Name</li>
+    <li>
+      <input type="checkbox"
+      [checked]="isSortByName"
+      (change)="changeSortByName($event.target.checked)"
+      >
+      By Name
+    </li>
+    <li>
+      <input
+      type="checkbox"
+      [checked]="isSortByDate"
+      (change)="changeSortByDate($event.target.checked)"
+      >
+       By Date
+      </li>
   </ul>
   <span>Type</span>
   <ul>
-    <li><input type="checkbox"> Number</li>
-    <li><input type="checkbox"> Text</li>
-    <li><input type="checkbox"> TextArea</li>
-    <li><input type="checkbox"> Checkbox</li>
-    <li><input type="checkbox"> Radio</li>
-    <li><input type="checkbox"> Autocomplete</li>
+    <li>
+      <input
+      type="checkbox"
+      [checked]="isNumberType"
+      (change)="changeNumberFilter($event.target.checked)"
+      >
+       Number
+      </li>
+    <li>
+      <input
+      type="checkbox"
+      [checked]="isTextType"
+      (change)="changeTextFilter($event.target.checked)"
+      >
+       Text
+      </li>
+    <li>
+      <input
+      type="checkbox"
+      [checked]="isTextAreaType"
+      (change)="changeTextAreaFilter($event.target.checked)"
+      >
+       TextArea
+      </li>
+    <li>
+      <input
+      type="checkbox"
+      [checked]="isCheckboxType"
+      (change)="changeCheckboxFilter($event.target.checked)"
+      >
+       Checkbox
+      </li>
+    <li>
+      <input
+      type="checkbox"
+      [checked]="isRadioType"
+      (change)="changeRadioFilter($event.target.checked)"
+      >
+       Radio
+      </li>
+    <li>
+      <input
+      type="checkbox"
+      [checked]="isAutocompleteType"
+      (change)="changeAutocompleteFilter($event.target.checked)"> Autocomplete</li>
   </ul>
   <span>Shared</span>
   <ul>
@@ -18,7 +71,39 @@
     <li><input type="checkbox"> My Fields</li>
   </ul>
   <div class="center-button">
-    <button  class="btn btn-default">Create Field</button>
+    <button  class="btn btn-default" (click)="openCreationModal(filterFieldContent)">Create Field</button>
   </div>
 </div>
+
+
+<ng-template #filterFieldContent let-fieldModal>
+  <div class="modal-header">
+    <h4 class="modal-title">New Field</h4>
+    <button type="button" class="close" aria-label="Close" (click)="fieldModal.dismiss('closed')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+          <label >Title</label>
+          <input [(ngModel)]="fieldModal.name" name="name" [id]="fieldModal.id+1" type="text" class="form-control" placeholder="Add Title">
+      </div>
+      <div class="form-group">
+        <label>Field Type</label>
+        <select [(ngModel)]="fieldModal.type" name="type" class="form-control">
+          <option *ngFor="let type of fieldType">{{type}}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" type="button" (click)="fieldModal.dismiss('closed')">
+      Cancel
+    </button>
+    <button class="btn btn-primary" type="button" (click)="fieldModal.close(fieldModal)">
+      Add
+    </button>
+  </div>
+</ng-template>
 

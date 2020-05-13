@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Form } from '../form';
 import { Field } from '../field';
 import { FormList, deleteStorageFormItem } from '../form-list';
-import { FieldList } from '../field-list';
+import { FieldList, deleteStorageFieldItem } from '../field-list';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class HomeService {
   getForm(): Observable<Form[]> {
     return of(FormList);
   }
-  
+
   addFormItem(item: Form): void {
     FormList.push(item);
     console.log(FormList);
@@ -32,6 +32,13 @@ export class HomeService {
     deleteStorageFormItem(id);
   }
 
+  deleteFieldItem(id: number): void {
+    deleteStorageFieldItem (id);
+  }
+
   shareFormItem(id: number): void {
+  }
+
+  shareFieldItem(id: number): void {
   }
 }

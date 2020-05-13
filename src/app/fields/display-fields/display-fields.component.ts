@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Field } from 'src/app/field';
+import { Field, FieldTypeEnum } from 'src/app/field';
 import { FieldsService } from "src/app/fields/fields.service";
+import { HomeService } from 'src/app/home/home.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-display-fields',
@@ -10,9 +12,15 @@ import { FieldsService } from "src/app/fields/fields.service";
 export class DisplayFieldsComponent implements OnInit {
 
   @Input() fields : Field[];
+  @Input() filterTypes: FieldTypeEnum[];
+  @Input() isSortByName: boolean;
+  @Input() isSortByDate: boolean;
+  modalField: Field;
 
   constructor(
-    private fieldsService: FieldsService
+    private fieldsService: FieldsService,
+    private homeService: HomeService,
+    private ngbModal: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -22,16 +30,28 @@ export class DisplayFieldsComponent implements OnInit {
   }
   getFields(): void {
     this.fieldsService.getField()
-    .subscribe(incomingField => this.fields = incomingField);
+    .subscribe(incomingFields => {
+      this.fields = incomingFields
+    });
   }
 
   searching(): string {
     return this.fieldsService.getSearch();
   }
 
- /* removeField (id:number) {
-    this.fieldsService.removeField(id)
+  deleteFieldItem(id: number): void {
+    this.homeService.deleteFieldItem(id);
+    alert(`Field with id ${id} was successfully deleted.`);
+    this.getFields();
   }
-  */
 
+  shareFieldItem(id: number): void {
+    this.homeService.shareFieldItem(id);
+    alert(`Field with id ${id} was successfully shared.`);
+  }
+
+  openViewModal(content: any, field: Field): void {
+    this.modalField = field;
+    this.ngbModal.open(content);
+  }
 }

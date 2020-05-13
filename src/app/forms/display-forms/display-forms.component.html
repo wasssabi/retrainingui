@@ -1,5 +1,5 @@
-<div class="row col-sm-12"> 
-  <div *ngFor="let form of (forms | formFilterPipe:filterStatuses | formOrderByPipe:isSortByName:isSortByDate)" class="col-sm-6 p-2">
+<div class="row col-sm-12">
+  <div *ngFor="let form of (forms | formFilterPipe:filterStatuses | formOrderByPipe:isSortByName:isSortByDate | FormSearch: searching())" class="col-sm-6 p-2">
     <div class="card">
       <div class="header">
         <h3 class="card-title">
@@ -22,7 +22,7 @@
         </button>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 
 <ng-template #formContent let-formModal>

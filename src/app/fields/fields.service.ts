@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
+import { Observable, of } from "rxjs";
+
 import { Field } from "../field";
 import { FieldList } from "../field-list";
-import { Observable, of } from "rxjs";
+
 
 @Injectable ({
   providedIn: 'root'
@@ -20,7 +22,7 @@ import { Observable, of } from "rxjs";
       return FieldList;
     }
 
-    addSearching(input): void {
+    addSearching(input: string): void {
       this.searchString = input;
     }
 
