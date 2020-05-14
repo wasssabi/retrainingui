@@ -16,10 +16,12 @@
     font-size: 4.5em;
     background-color: white;
     border-radius: 5%;
+    height: 250px;
 }
 
 .card {
     border-radius: 5%;
+    height: 250px;
 }
 
 .btn {
@@ -30,4 +32,10 @@
 .card-footer {
     display: flex;
     justify-content: space-between;
+    padding: 10px 1px;
+}
+
+.cardBlock {
+    padding-right: 6px;
+    padding-left: 6px;
 }

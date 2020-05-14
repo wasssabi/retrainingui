@@ -1,21 +1,25 @@
 <p class="forms-header">Forms</p>
 <div class="container">
   <div class="row">
-    <div class="Form col-sm-4 m-2" (click)="open(formContent)">
-      <p>+</p>
+    <div class="cardBlock col-sm-12 col-md-12 col-lg-6 col-xl-4">
+      <div class="Form col-12 mx-1 my-2" (click)="open(formContent)">
+        <p>+</p>
+      </div>
     </div>
-    <div *ngFor="let form of forms" class="card col-sm-4 m-2">
-      <div class="card-header">
-          <h3 class="card-title">
-            {{form.name}}
-          </h3>
-      </div>
-      <div class="card-body">
-        <p class="card-text">{{form.description}}</p>
-      </div>
-      <div class="card-footer">
-        <button class="btn btn-default">View <i class="fas fa-eye"></i></button>
-        <button class="btn btn-default">Share <i class="fas fa-paper-plane"></i></button>
+    <div *ngFor="let form of forms" class="cardBlock col-sm-12 col-md-12 col-lg-6 col-xl-4">
+      <div class="card col-12 mx-1 my-2">
+        <div class="card-header">
+            <h3 class="card-title">
+              {{form.name}}
+            </h3>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{form.description}}</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-default">View <i class="fas fa-eye"></i></button>
+          <button class="btn btn-default">Share <i class="fas fa-paper-plane"></i></button>
+        </div>
       </div>
     </div>
   </div>
@@ -29,14 +33,19 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="addingForm">
       <div class="form-group">
           <label >Title</label>
-          <input ngbAutofocus [(ngModel)]="formModal.name" name="name" type="text" class="form-control" placeholder="Add Title" required>
+          <input type="text" formControlName="title" class="form-control" placeholder="Add Title">
       </div>
       <div class="form-group">
-          <label>Form Description</label>
-          <textarea [(ngModel)]="formModal.description" name="description" class="form-control" rows="3" placeholder="add description" required></textarea>
+        <select class="form-control" formControlName="status">
+          <option *ngFor="let status of formStatuses">{{status}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Form Description</label>
+        <textarea formControlName="description" class="form-control" rows="3" placeholder="add description"></textarea>
       </div>
     </form>
   </div>
@@ -44,7 +53,7 @@
     <button class="btn btn-default" type="button" (click)="formModal.dismiss()">
       Cancel
     </button>
-    <button class="btn btn-primary" type="submit" (click)="formModal.close(formModal)">
+    <button class="btn btn-primary" type="submit" [disabled]="addingForm.invalid" (click)="formModal.close()">
       Add
     </button>
   </div>

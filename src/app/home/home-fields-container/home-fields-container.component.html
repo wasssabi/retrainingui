@@ -1,22 +1,26 @@
 <p class="fields-header">Fields</p>
 <div class="container">
   <div class="row">
-    <div class="Field col-sm-4 m-2" (click)="open(content)">
-      <p>+</p>
+    <div class="cardBlock col-sm-12 col-md-12 col-lg-6 col-xl-4">
+      <div class="Field col-12 mx-1 my-2" (click)="open(content)">
+        <p>+</p>
+      </div>
     </div>
-    <div *ngFor="let field of fields" class="card col-sm-4 m-2">
-      <div class="card-header">
-          <h3 class="card-title">
-            {{field.name}}
-          </h3>
-      </div>
-      <div class="card-body">
-        <p class="card-text">{{field.type}}</p>
-        <p class="card-text">{{field.created | date: 'longDate'}} </p>
-      </div>
-      <div class="card-footer">
-        <button class="btn btn-default">View <i class="fas fa-eye"></i></button>
-        <button class="btn btn-default">Share <i class="fas fa-paper-plane"></i></button>
+    <div *ngFor="let field of fields" class="cardBlock col-sm-12 col-md-12 col-lg-6 col-xl-4">
+      <div class="card col-12 mx-1 my-2">
+        <div class="card-header">
+            <h3 class="card-title">
+              {{field.name}}
+            </h3>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{field.type}}</p>
+          <p class="card-text">{{field.created | date: 'longDate'}} </p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-default">View <i class="fas fa-eye"></i></button>
+          <button class="btn btn-default">Share <i class="fas fa-paper-plane"></i></button>
+        </div>
       </div>
     </div>
   </div>
@@ -30,14 +34,14 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="addingForm">
       <div class="form-group">
           <label >Title</label>
-          <input [(ngModel)]="fieldModal.name" name="name" type="text" class="form-control" placeholder="Add Title">
+          <input type="text" class="form-control" formControlName="title" placeholder="Add Title">
       </div>
       <div class="form-group">
         <label>Field Type</label>
-        <select [(ngModel)]="fieldModal.type" name="type" class="form-control">
+        <select class="form-control" formControlName="type">
           <option *ngFor="let type of fieldType">{{type}}</option>
         </select>
       </div>
@@ -47,7 +51,7 @@
     <button class="btn btn-default" type="button" (click)="fieldModal.dismiss('closed')">
       Cancel
     </button>
-    <button class="btn btn-primary" type="button" (click)="fieldModal.close(fieldModal)">
+    <button class="btn btn-primary" type="submit" [disabled]="addingForm.invalid" (click)="fieldModal.close()">
       Add
     </button>
   </div>
