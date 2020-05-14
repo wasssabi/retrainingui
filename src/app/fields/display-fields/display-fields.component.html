@@ -1,31 +1,63 @@
-    <div *ngFor="let field of fields | fieldSearch: searching()" class="displayed-field">
-      <div>
-      <h3>
-        {{ field .name }}
-      </h3>
-      <div>
-        <ul>
-          <li>
-            {{field.type}}
-          </li>
-          <li>
-            Created: {{field.created | date:'longDate'}}
-          </li>
-        </ul>
+
+
+
+
+    <div class="row col-sm-12">
+      <div *ngFor="let field of (fields | fieldFilterPipe:filterTypes | fieldOrderByPipe:isSortByName:isSortByDate | fieldSearch: searching())" class="col-sm-12 p-2">
+        <div class="card">
+          <div class="header">
+            <h3 class="card-title">
+              {{field.name}}
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="content">
+              <p>Type: {{field.type}}</p>
+              <p>Created at: {{field.created.toLocaleString()}}
+            </div>
+          <div class="btn-group-vertical buttons">
+            <button class="btn btn-default" (click)="openViewModal(fieldContent, field)">
+              View <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-default" (click)="shareFieldItem(field.id)">
+              Share <i class="fas fa-paper-plane"></i>
+            </button>
+            <button class="btn btn-default" (click)="deleteFieldItem(field.id)">
+              Delete <i class="fas fa-dumpster"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
-      <div class="btn-group-vertical buttons">
-        <button class="btn btn-default">
-          Share <i class="fas fa-paper-plane"></i>
-        </button>
-        <button class="btn btn-default">
-           <i class="far fa-edit"></i>
-        </button>
-        <button class="btn btn-default">
-          Delete <i class="fas fa-dumpster"></i>
+    <ng-template #fieldContent let-fieldModal>
+      <div class="modal-header">
+        <h4 class="modal-title">View Field</h4>
+        <button type="button" class="close" aria-label="Close" (click)="fieldModal.dismiss()">
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    </div>
-
-
+      <div class="modal-body">
+        <form>
+          <div>
+              <label class="font-weight-bold">Title</label>
+              <p>{{modalField.name}}</p>
+            </div>
+          <div>
+            <p class="font-weight-bold">
+              Type: <span class="font-weight-normal">{{modalField.type}}</span>
+            </p>
+          </div>
+          <div>
+            <p class="font-weight-bold">
+              Created at: <span class="font-weight-normal">{{modalField.created}}</span>
+            </p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" type="button" (click)="fieldModal.dismiss()">
+          Close
+        </button>
+      </div>
+    </ng-template>

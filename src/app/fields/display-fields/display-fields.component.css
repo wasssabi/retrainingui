@@ -1,14 +1,6 @@
 ul {
   list-style-type: none;
 }
-.displayed-field {
-  background-color: #d4d5d0;
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 3px;
-  display: flex;
-  justify-content: space-between;
-}
 
 .btn {
   background-color: #43656f;
@@ -16,7 +8,44 @@ ul {
   border-radius: 3px;
   border-color: #43656f;
   margin: 5px 10px;
+  width: 120px;
 }
+
+.header {
+  padding-top: 10px;
+}
+
+.row {
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.card {
+  border-radius: 3px;
+  background-color: #d4d5d0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-title {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.content {
+  padding-left: 20px;
+}
+
 
 
 
