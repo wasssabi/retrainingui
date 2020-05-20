@@ -6,7 +6,7 @@ import { Field, FieldTypeEnum } from '../../field';
 })
 
 export class FieldFilterPipe implements PipeTransform {
-  transform(fields: Field[], types: FieldTypeEnum[]): Field[] {
-    return fields.filter(item => types.includes(item.type));
+  transform(fields: Field[], filterTypes: FieldTypeEnum[]): Field[] {
+    return fields.filter(item => filterTypes.includes(item.fieldType));
   }
 }

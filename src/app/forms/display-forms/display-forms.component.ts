@@ -15,6 +15,7 @@ export class DisplayFormsComponent implements OnInit {
   @Input() filterStatuses: FormStatusEnum[];
   @Input() isSortByName: boolean;
   @Input() isSortByDate: boolean;
+  @Input() statusEnum = FormStatusEnum;
   modalForm: Form;
 
   constructor(
@@ -30,11 +31,8 @@ export class DisplayFormsComponent implements OnInit {
   }
 
   getForms(): void {
-    this.formsService
-      .getForm()
-      .subscribe(incomingForms => {
-        this.forms = incomingForms
-      });
+    this.homeService.requestForms()
+    .subscribe(incI => this.forms = incI);
   }
 
   searching(): string {
@@ -55,5 +53,13 @@ export class DisplayFormsComponent implements OnInit {
   openViewModal(content: any, form: Form): void {
     this.modalForm = form;
     this.ngbModal.open(content);
+  }
+
+  dateGeneration(form: Form): Date {
+    return new Date(form.created);
+  }
+
+  statusGeneration(form: Form): string {
+    return FormStatusEnum[Number(form.published)];
   }
 }

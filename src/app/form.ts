@@ -1,12 +1,13 @@
 export enum FormStatusEnum {
-  DRAFT = 'Draft',
-  PUBLISHED = 'Published'
+  'Draft',
+  'Published'
 }
 
 export interface Form {
-  id: number;
-  name: string;
-  description: string;
-  status: FormStatusEnum;
-  date: Date;
+  id: number,
+  formName: string,
+  formTitle: string,
+  resultsUrl: string,
+  created: string,
+  published: boolean
 }

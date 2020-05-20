@@ -26,13 +26,11 @@ export class DisplayFieldsComponent implements OnInit {
   ngOnInit(): void {
     this.getFields();
     this.searching();
-
   }
+
   getFields(): void {
-    this.fieldsService.getField()
-    .subscribe(incomingFields => {
-      this.fields = incomingFields
-    });
+    this.homeService.requestFields()
+    .subscribe(incomingFields => {this.fields = incomingFields; console.log(incomingFields);});
   }
 
   searching(): string {
@@ -53,5 +51,13 @@ export class DisplayFieldsComponent implements OnInit {
   openViewModal(content: any, field: Field): void {
     this.modalField = field;
     this.ngbModal.open(content);
+  }
+
+  dateGeneration(field: Field): Date {
+    return new Date(field.created);
+  }
+
+  typeGeneration(field: Field): string {
+    return FieldTypeEnum[field.fieldType];
   }
 }

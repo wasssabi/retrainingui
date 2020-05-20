@@ -11,7 +11,7 @@ export class FormSearchPipe implements PipeTransform {
     }
 
     return forms.filter(form => {
-      return form.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
+      return form.formName.toLowerCase().indexOf(search.toLowerCase()) !== -1
     })
 
   }
