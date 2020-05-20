@@ -35,27 +35,27 @@ export class FormsFilterComponent implements OnInit {
   ngOnInit(): void {
     this.generateReactForm();
   }
-  changePublishedFilter(value: boolean) {
+  changePublishedFilter(value: boolean): void {
     this.isPublishedStatus = value;
     this.isPublishedEmitter.emit(value);
   }
 
-  changeDraftFilter(value: boolean) {
+  changeDraftFilter(value: boolean): void {
     this.isDraftStatus = value;
     this.isDraftEmitter.emit(value);
   }
 
-  changeSortByName(value: boolean) {
+  changeSortByName(value: boolean): void {
     this.isSortByName = value;
     this.isSortByNameEmitter.emit(value);
   }
 
-  changeSortByDate(value: boolean) {
+  changeSortByDate(value: boolean): void {
     this.isSortByDate = value;
     this.isSortByDateEmitter.emit(value);
   }
 
-  generateReactForm() {
+  generateReactForm(): void {
     this.addingForm = this.formBuilder.group({
       title: ['', Validators.required],
       status: [FormStatusEnum.DRAFT],
@@ -67,7 +67,7 @@ export class FormsFilterComponent implements OnInit {
     this.ngbModal.open(content)
     .result.then(result => {
       this.newForm = {
-        id: 1, 
+        id: Math.floor(Math.random() * 1000), 
         name: this.addingForm.get("title").value, 
         description: this.addingForm.get("description").value,
         status: this.addingForm.get("status").value,
