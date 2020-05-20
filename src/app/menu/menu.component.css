@@ -1,35 +1,35 @@
 .logo {
-    display: flex;
-    align-items: center;
-    padding-left: 10%;
-    font-size: 1.4em;
+	display: flex;
+	align-items: center;
+	padding-left: 10%;
+	font-size: 1.4em;
 }
 
 .navbar {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    background-color: #023246;
-    color: white;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	background-color: #023246;
+	color: white;
 }
 
 .options {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+	display: grid;
+	grid-template-columns: 3fr 1fr;
 }
 
 .navbar-nav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    justify-items: center;
-    align-items: center;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); 
+	justify-items: center;
+	align-items: center;
 }
 
 .btn {
-    background-color: #d3d4cd;
+	background-color: #d3d4cd;
 }
 
-.logSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.log-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
