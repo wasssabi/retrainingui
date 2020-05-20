@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserRegistrationService } from './user-registration.service';
-import { RegistrationComponent } from './registration.component';
+import { LoginService } from './login.service';
+import { LoginComponent } from './login.component';
 
 @NgModule({
   declarations: [
-    RegistrationComponent  
+    LoginComponent  
   ],
   imports: [
     BrowserModule,
@@ -16,7 +16,7 @@ import { RegistrationComponent } from './registration.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [UserRegistrationService],
-  bootstrap: [RegistrationComponent]
+  providers: [LoginService],
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }

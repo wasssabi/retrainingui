@@ -17,7 +17,10 @@ export class RegistrationComponent implements OnInit {
     private service: UserRegistrationService) { }
 
   ngOnInit(): void {
+    
     this.registrationForm = this.formBuilder.group({
+      email: ["qwe"],
+      isActive: [true],
       username: [
         '',
         [Validators.required, Validators.maxLength(28)]

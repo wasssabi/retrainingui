@@ -11,12 +11,14 @@ import { MenuComponent } from "./menu/menu.component";
 import { FieldsModule } from './fields/fields.module';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserRegistrationService } from './registration/user-registration.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
