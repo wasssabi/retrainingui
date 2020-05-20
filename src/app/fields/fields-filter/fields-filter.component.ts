@@ -91,10 +91,12 @@ export class FieldsFilterComponent implements OnInit {
     .result.then(result => {
       if(result.name) {
         this.newField = {
-          id: uuid.v4(),
+          id: null,
           name: result.name,
-          type: result.type,
-          created: new Date()
+          fieldType: parseInt(FieldTypeEnum[result.type]),
+          created: new Date().toISOString(),
+          isStrict: true,
+          ownerId: null
         };
         this.homeService.addFieldItem(this.newField);
       }

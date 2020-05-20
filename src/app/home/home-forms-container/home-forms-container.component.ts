@@ -13,6 +13,7 @@ import { HomeService } from '../home.service';
 export class HomeFormsContainerComponent implements OnInit {
 
   addingForm: FormGroup;
+  testData: any;
 
   newForm: Form;
   forms: Form[];
@@ -32,7 +33,7 @@ export class HomeFormsContainerComponent implements OnInit {
   generateReactForm() {
     this.addingForm = this.formBuilder.group({
       title: ['', Validators.required],
-      status: [FormStatusEnum.DRAFT],
+      status: [FormStatusEnum[0]],
       description: ['']
     });
   }
@@ -41,21 +42,23 @@ export class HomeFormsContainerComponent implements OnInit {
     this.ngbModal.open(content)
     .result.then(result => {
       this.newForm = {
-        id: 1, 
-        name: this.addingForm.get("title").value, 
-        description: this.addingForm.get("description").value,
-        status: this.addingForm.get("status").value,
-        date: new Date()
+        id: null, 
+        formName: this.addingForm.get("title").value, 
+        formTitle: this.addingForm.get("description").value,
+        resultsUrl: "",
+        published: true,
+        created: new Date().toISOString()
       };
       this.homeService.addFormItem(this.newForm);
-      this.addingForm.reset({status: FormStatusEnum.DRAFT});
+      this.addingForm.reset({status: FormStatusEnum[0]});
+      this.ngOnInit();
     }, reason => {
       console.log(reason);
     })
   }
 
   getForms(): void {
-    this.homeService.getForm()
-    .subscribe(incomingForm => this.forms = incomingForm);
+    this.homeService.requestForms()
+    .subscribe(incI => this.forms = incI);
   }
 }

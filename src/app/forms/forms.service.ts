@@ -1,19 +1,19 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { HomeService } from "../home/home.service";
 
 import { Form } from '../form';
-import { FormList } from '../form-list';
+import { Observable } from 'rxjs';
 
 @Injectable ({
   providedIn: 'root'
 })
   export class FormsService {
-    constructor() {}
+    constructor(private homeService: HomeService) {}
 
     private searchString: string;
 
     getForm(): Observable<Form[]> {
-      return of(FormList);
+      return this.homeService.requestForms();
     }
 
     addSearching(input: string): void {

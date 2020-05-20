@@ -21,10 +21,10 @@ export class FormsComponent implements OnInit {
   get filterStatuses(): FormStatusEnum[] {
     const statuses: FormStatusEnum[] = [];
     if (this.draftStatus) {
-      statuses.push(FormStatusEnum.DRAFT);
+      statuses.push(FormStatusEnum.Draft);
     }
     if (this.publishedStatus) {
-      statuses.push(FormStatusEnum.PUBLISHED);
+      statuses.push(FormStatusEnum.Published);
     }
     return statuses;
   }

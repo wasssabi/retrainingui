@@ -3,13 +3,13 @@
     <div class="card">
       <div class="header">
         <h3 class="card-title">
-          {{form.name}}
+          {{form.formName}}
         </h3>
       </div>
       <div class="card-body">
-        <p class="card-description">{{form.description}}</p>
-        <p>Status: {{form.status}}</p>
-        <p>Created at: {{form.date.toLocaleString()}}
+        <p class="card-description">{{form.formTitle}}</p>
+        <p>Status: {{statusGeneration(form)}}</p>
+        <p>Created at: {{dateGeneration(form).toLocaleString()}}
       <div class="buttons">
         <button class="btn btn-default" (click)="openViewModal(formContent, form)">
           View <i class="fas fa-eye"></i>
@@ -36,20 +36,21 @@
     <form>
       <div>
           <label class="font-weight-bold">Title</label>
-          <p>{{modalForm.name}}</p>
+          <p>{{modalForm.formName}}</p>
         </div>
       <div>
           <label class="font-weight-bold">Form Description</label>
-          <p>{{modalForm.description}}</p>
+          <p>{{modalForm.formTitle}}</p>
       </div>
       <div>
         <p class="font-weight-bold">
-          Status: <span class="font-weight-normal">{{modalForm.status}}</span>
+          Status: <span class="font-weight-normal">
+            {{modalForm.published}}</span>
         </p>
       </div>
       <div>
         <p class="font-weight-bold">
-          Created at: <span class="font-weight-normal">{{modalForm.date}}</span>
+          Created at: <span class="font-weight-normal">{{modalForm.created}}</span>
         </p>
       </div>
     </form>

@@ -6,6 +6,6 @@ import { Form, FormStatusEnum } from '../../form';
 })
 export class FormFilterPipe implements PipeTransform {
   transform(forms: Form[], statuses: FormStatusEnum[]): Form[] {
-    return forms.filter(item => statuses.includes(item.status));
+    return forms.filter(item => statuses.includes(Number(item.published)));
   }
 }

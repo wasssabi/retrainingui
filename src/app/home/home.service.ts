@@ -1,39 +1,56 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { catchError, map, tap } from 'rxjs/operators';
 
-import { Form } from '../form';
+import { Form, FormStatusEnum } from '../form';
 import { Field } from '../field';
-import { FormList, deleteStorageFormItem } from '../form-list';
-import { FieldList, deleteStorageFieldItem } from '../field-list';
+import { FormResponse } from "../respInterface";
+import { error } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
-  constructor() { }
-  getField(): Observable<Field[]> {
-    return of(FieldList);
+  constructor(private http: HttpClient) { }
+
+  formList: Form[] = [];
+  fieldList: Field[];
+
+  requestFields() {
+    return this.http.get<Field[]>('http://localhost:8080/fields');
+    
   }
-  getForm(): Observable<Form[]> {
-    return of(FormList);
+
+  requestForms(): Observable<Form[]> {
+    return this.http.get<Form[]>('http://localhost:8080/forms');
+  }
+
+  getField() {
+    this.requestFields()
+    .subscribe(incomingField => {
+      for(let i in incomingField){
+        console.log(i);
+      }
+      console.log(incomingField);
+    });
   }
 
   addFormItem(item: Form): void {
-    FormList.push(item);
-    console.log(FormList);
+    this.http.post<Form>('http://localhost:8080/forms', item).subscribe(data => console.log(data));
   }
 
   addFieldItem(item: Field): void {
-    FieldList.push(item);
+    this.http.post<Field>('http://localhost:8080/fields', item).subscribe(data => console.log(data));
   }
 
   deleteFormItem(id: number): void {
-    deleteStorageFormItem(id);
+    this.http.delete('http://localhost:8080/forms/' + id).subscribe(data => console.log(data));
   }
 
   deleteFieldItem(id: number): void {
-    deleteStorageFieldItem (id);
+    this.http.delete('http://localhost:8080/fields/' + id).subscribe(data => console.log(data));
   }
 
   shareFormItem(id: number): void {

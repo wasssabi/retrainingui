@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 
-import { Field } from "src/app/field";
+import { Field, FieldTypeEnum } from "src/app/field";
 import { HomeService } from "src/app/home/home.service";
 import { FieldType } from "./fieldType";
 
@@ -30,12 +30,13 @@ export class HomeFieldsContainerComponent implements OnInit {
   ngOnInit() {
     this.getFields();
     this.generateReactForm();
+    console.log(FieldTypeEnum.Number);
+    
   }
 
   getFields(): void {
-    this.homeService
-      .getField()
-      .subscribe(incomingField => this.fields = incomingField);
+    this.homeService.requestFields()
+    .subscribe(incI => this.fields = incI);
   }
 
   generateReactForm() {
@@ -48,10 +49,12 @@ export class HomeFieldsContainerComponent implements OnInit {
   open(content) {
     this.ngbModal.open(content).result.then(result => {
       this.newField = {
-        id: 1, 
+        id: null, 
         name: this.addingForm.get('title').value, 
-        type: this.addingForm.get('type').value,
-        created: new Date()
+        fieldType: this.addingForm.get('type').value,
+        created: new Date().toISOString(),
+        isStrict: true,
+        ownerId: null
       };
       this.homeService.addFieldItem(this.newField);
       this.addingForm.reset();

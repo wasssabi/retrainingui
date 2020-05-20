@@ -13,7 +13,7 @@ export class fieldOrderByPipe implements PipeTransform {
       result.sort((a,b) => compareStringsAsc(a.name, b.name));
     }
     if (isByDate) {
-      result.sort((a,b) => compareDatesAsc(a.created, b.created));
+      result.sort((a,b) => compareDatesAsc(new Date(a.created), new Date(b.created)));
     }
     return result;
   }

@@ -1,6 +1,6 @@
 
 
-
+<!-- | fieldFilterPipe:filterTypes | fieldOrderByPipe:isSortByName:isSortByDate | fieldSearch: searching() -->
 
     <div class="row col-sm-12">
       <div *ngFor="let field of (fields | fieldFilterPipe:filterTypes | fieldOrderByPipe:isSortByName:isSortByDate | fieldSearch: searching())" class="col-sm-12 p-2">
@@ -12,8 +12,8 @@
           </div>
           <div class="card-body">
             <div class="content">
-              <p>Type: {{field.type}}</p>
-              <p>Created at: {{field.created.toLocaleString()}}
+              <p>Type: {{typeGeneration(field)}}</p>
+              <p>Created at: {{dateGeneration(field).toLocaleString()}}
             </div>
           <div class="btn-group-vertical buttons">
             <button class="btn btn-default" (click)="openViewModal(fieldContent, field)">
@@ -45,7 +45,7 @@
             </div>
           <div>
             <p class="font-weight-bold">
-              Type: <span class="font-weight-normal">{{modalField.type}}</span>
+              Type: <span class="font-weight-normal">{{modalField.fieldType}}</span>
             </p>
           </div>
           <div>

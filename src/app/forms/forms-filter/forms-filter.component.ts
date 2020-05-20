@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { Form, FormStatusEnum } from '../../form';
 import { HomeService } from '../../home/home.service';
+import { FormStatus } from './formStatus';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class FormsFilterComponent implements OnInit {
   @Output('isSortByDateChange') isSortByDateEmitter: EventEmitter<boolean> = new EventEmitter();
 
   addingForm: FormGroup;
-  formStatuses = Object.values(FormStatusEnum);
+  formStatuses = FormStatus;
   newForm: Form;
   
   constructor(
@@ -58,7 +59,7 @@ export class FormsFilterComponent implements OnInit {
   generateReactForm(): void {
     this.addingForm = this.formBuilder.group({
       title: ['', Validators.required],
-      status: [FormStatusEnum.DRAFT],
+      status: [FormStatusEnum[0]],
       description: ['']
     });
   }
@@ -66,15 +67,16 @@ export class FormsFilterComponent implements OnInit {
   openCreationModal(content: any): void {
     this.ngbModal.open(content)
     .result.then(result => {
-      this.newForm = {
-        id: Math.floor(Math.random() * 1000), 
-        name: this.addingForm.get("title").value, 
-        description: this.addingForm.get("description").value,
-        status: this.addingForm.get("status").value,
-        date: new Date()
+        this.newForm = {
+        id: null, 
+        formName: this.addingForm.get("title").value, 
+        formTitle: this.addingForm.get("description").value,
+        resultsUrl: "",
+        published: Boolean(FormStatusEnum[this.addingForm.get("status").value]),
+        created: new Date().toISOString()
       };
       this.homeService.addFormItem(this.newForm);
-      this.addingForm.reset({status: FormStatusEnum.DRAFT});
+      this.addingForm.reset({status: FormStatusEnum[0]});
     }, reason => {
       console.log(reason);
     })

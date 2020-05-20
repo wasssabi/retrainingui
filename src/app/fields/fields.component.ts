@@ -25,22 +25,22 @@ export class FieldsComponent implements OnInit {
   get filterTypes(): FieldTypeEnum[] {
     const types: FieldTypeEnum[] = [];
     if (this.numberType) {
-      types.push(FieldTypeEnum.NUMBER);
+      types.push(FieldTypeEnum.Number);
     }
     if (this.textType) {
-      types.push(FieldTypeEnum.TEXT);
+      types.push(FieldTypeEnum.Text);
     }
     if (this.textAreaType) {
-      types.push(FieldTypeEnum.TEXTAREA);
+      types.push(FieldTypeEnum.TextArea);
     }
     if (this.checkboxType) {
-      types.push(FieldTypeEnum.CHECKBOX);
+      types.push(FieldTypeEnum.Checkbox);
     }
     if (this.radioType) {
-      types.push(FieldTypeEnum.RADIO);
+      types.push(FieldTypeEnum.Radio);
     }
     if (this.autocompleteType) {
-      types.push(FieldTypeEnum.AUTOCOMPLETE);
+      types.push(FieldTypeEnum.Autocomplete);
     }
     return types;
   }
