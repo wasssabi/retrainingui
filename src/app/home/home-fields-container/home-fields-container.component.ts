@@ -6,6 +6,8 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Field, FieldTypeEnum } from "src/app/field";
 import { HomeService } from "src/app/home/home.service";
 import { FieldType } from "./fieldType";
+import { timer } from 'rxjs';
+import { UpdateTime } from "../../updateTime";
 
 
 @Component({
@@ -28,7 +30,8 @@ export class HomeFieldsContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getFields();
+    let refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
+    refresh.subscribe(result => this.getFields());
     this.generateReactForm();
     console.log(FieldTypeEnum.Number);
     
@@ -51,7 +54,7 @@ export class HomeFieldsContainerComponent implements OnInit {
       this.newField = {
         id: null, 
         name: this.addingForm.get('title').value, 
-        fieldType: this.addingForm.get('type').value,
+        fieldType: parseInt(FieldTypeEnum[this.addingForm.get('type').value]),
         created: new Date().toISOString(),
         isStrict: true,
         ownerId: null

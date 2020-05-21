@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserRegistrationService } from './user-registration.service';
 
-import { passwordConfirmationValidator } from '../shared/password-confirmation-validator.directive';
+import { passwordConfirmationValidator } from '../../shared/password-confirmation-validator.directive';
 
 @Component({
   selector: 'app-registration',

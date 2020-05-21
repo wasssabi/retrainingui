@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 import { LoginService } from "../login/login.service";
-import { token } from "../token";
+import { HomeService } from "../home/home.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService) { }
+    private loginService: LoginService,
+    private homeService: HomeService) { }
 
   ngOnInit(): void {
     this.loginFormGeneration();
@@ -38,8 +39,9 @@ export class LoginComponent implements OnInit {
   public login(): void {
     this.loginService.login(this.loginForm.value)
     .subscribe(data => {
-      JSON.stringify(data.token);
+      this.homeService.setToken(JSON.stringify(data.token));
+      this.loginForm.reset();
+      alert('Logged in');
     });
   }
-
 }

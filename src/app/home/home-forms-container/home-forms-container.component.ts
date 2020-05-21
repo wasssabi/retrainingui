@@ -4,6 +4,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Form, FormStatusEnum } from '../../form';
 import { HomeService } from '../home.service';
+import { timer } from 'rxjs';
+import { UpdateTime } from '../../updateTime';
 
 @Component({
   selector: 'home-forms-container',
@@ -26,7 +28,8 @@ export class HomeFormsContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getForms();
+    let refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
+    refresh.subscribe(result => this.getForms());
     this.generateReactForm();
   }
 
@@ -46,7 +49,7 @@ export class HomeFormsContainerComponent implements OnInit {
         formName: this.addingForm.get("title").value, 
         formTitle: this.addingForm.get("description").value,
         resultsUrl: "",
-        published: true,
+        published: Boolean(FormStatusEnum[this.addingForm.get("status").value]),
         created: new Date().toISOString()
       };
       this.homeService.addFormItem(this.newForm);

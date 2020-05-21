@@ -4,6 +4,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Form, FormStatusEnum } from '../../form';
 import { FormsService } from '../forms.service';
 import { HomeService } from '../../home/home.service';
+import { timer } from 'rxjs';
+import { UpdateTime } from '../../updateTime';
 
 @Component({
   selector: 'app-display-forms',
@@ -26,7 +28,8 @@ export class DisplayFormsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getForms();
+    let refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
+    refresh.subscribe(result => this.getForms());
     this.searching();
   }
 

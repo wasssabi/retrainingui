@@ -3,6 +3,8 @@ import { Field, FieldTypeEnum } from 'src/app/field';
 import { FieldsService } from "src/app/fields/fields.service";
 import { HomeService } from 'src/app/home/home.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { timer } from 'rxjs';
+import { UpdateTime } from '../../updateTime';
 
 @Component({
   selector: 'app-display-fields',
@@ -24,7 +26,8 @@ export class DisplayFieldsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getFields();
+    let refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
+    refresh.subscribe(result => this.getFields());
     this.searching();
   }
 
