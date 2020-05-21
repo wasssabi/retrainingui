@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserRegistrationService } from './user-registration.service';
 
-import { passwordConfirmationValidator } from '../shared/password-confirmation-validator.directive';
+import { passwordConfirmationValidator } from '../../shared/password-confirmation-validator.directive';
 
 @Component({
   selector: 'app-registration',
@@ -17,7 +17,10 @@ export class RegistrationComponent implements OnInit {
     private service: UserRegistrationService) { }
 
   ngOnInit(): void {
+    
     this.registrationForm = this.formBuilder.group({
+      email: ["qwe"],
+      isActive: [true],
       username: [
         '',
         [Validators.required, Validators.maxLength(28)]

@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 m-auto">
+			<form [formGroup]="loginForm" (ngSubmit)="login()">
+				<fieldset>
+					<div class="form-group">
+						<label for="username">
+							<span class="req">* </span> Username: 
+						</label>
+						<input 
+							formControlName="username"
+							type="text"
+							name="username" 
+							id="username"
+							class="form-control" 
+							placeholder="Enter your username" 
+							[ngClass]="{ 'is-invalid': form.username.errors }"
+						/>
+						<div *ngIf="form.username.errors?.required" class="invalid-feedback">
+							Username is required.
+						</div>
+						<div *ngIf="form.username.errors?.maxlength" class="invalid-feedback">
+							Username max length is {{form.username.errors.maxlength.requiredLength}}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="password"><span class="req">* </span> Password: </label>
+						<input 
+						  formControlName="password"
+							class="form-control"
+							type="password" 
+							name="password" 
+							id="password" 
+							placeholder="Enter your password" 
+							[ngClass]="{ 'is-invalid': form.password.errors }"
+						/>
+						<div *ngIf="form.password.errors?.required" class="invalid-feedback">
+							Password is required.
+						</div>
+						<div *ngIf="form.password.errors?.minlength" class="invalid-feedback">
+							Password min length is {{form.password.errors.minlength.requiredLength}}
+						</div>
+					</div>
+					<div class="form-group">
+                        <button [disabled]="loginForm.invalid" class="btn btn-default" type="submit">Log in</button>
+                        <p>If you don`t have an account, please 
+                            <a class="sign-up" routerLink="/registration"> Sign up</a>
+                        </p>
+					</div>
+				</fieldset>
+			</form>            
+		</div>
+	</div>
+</div>
+

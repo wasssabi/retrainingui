@@ -12,6 +12,7 @@ import { error } from '@angular/compiler/src/util';
   providedIn: 'root'
 })
 export class HomeService {
+  userToken: string;
 
   constructor(private http: HttpClient) { }
 
@@ -35,6 +36,19 @@ export class HomeService {
       }
       console.log(incomingField);
     });
+  }
+
+  setToken(value) {
+    this.userToken = value;
+    console.log(this.userToken);
+  }
+
+  getToken(): Observable<string> {
+    return of(this.userToken);
+  }
+
+  clearToken() {
+    this.userToken = null;
   }
 
   addFormItem(item: Form): void {

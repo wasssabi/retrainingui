@@ -44,5 +44,4 @@ export class FieldsComponent implements OnInit {
     }
     return types;
   }
-
 }
