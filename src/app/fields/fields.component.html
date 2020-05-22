@@ -1,24 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3 filterFields">
-      <app-fields-filter
-        [isNumber]="numberType"
-        (isNumberChange)="this.numberType=$event"
-        [isText]="textType"
-        (isTextChange)="this.textType=$event"
-        [isTextArea]="textAreaType"
-        (isTextAreaChange)="this.textAreaType=$event"
-        [isCheckbox]="checkboxType"
-        (isCheckboxChange)="this.checkboxType=$event"
-        [isRadio]="radioType"
-        (isRadioChange)="this.radioType=$event"
-        [isAutocomplete]="autocompleteType"
-        (isAutocompleteChange)="this.autocompleteType=$event"
-        [isSortByName]="sortByName"
+      <app-fields-filter 
         (isSortByNameChange)="this.sortByName=$event"
-        [isSortByDate]="sortByDate"
         (isSortByDateChange)="this.sortByDate=$event"
-      ></app-fields-filter>
+        (updatedFilterList)="this.inFilterTypesGeneration($event)"></app-fields-filter>
     </div>
     <div class="col-sm-9">
       <div class="searchFields">
@@ -26,7 +12,7 @@
       </div>
       <div class="displayFields">
         <app-display-fields
-          [filterTypes]="filterTypes" 
+          [filterTypes]="outFilterTypes"
           [isSortByName]="sortByName"
           [isSortByDate]="sortByDate"
         ></app-display-fields>

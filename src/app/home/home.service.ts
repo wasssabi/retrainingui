@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from "../../environments/environment";
 
-import { Form, FormStatusEnum } from '../form';
+import { Form } from '../form';
 import { Field } from '../field';
-import { FormResponse } from "../respInterface";
 import { error } from '@angular/compiler/src/util';
 
 @Injectable({
@@ -18,14 +18,17 @@ export class HomeService {
 
   formList: Form[] = [];
   fieldList: Field[];
+  mainUrl = environment.apiURL;
+  formsUrl = environment.formsPage;
+  fieldsUrl = environment.fieldsPage;
 
   requestFields() {
-    return this.http.get<Field[]>('http://localhost:8080/fields');
+    return this.http.get<Field[]>(this.mainUrl + this.fieldsUrl);
     
   }
 
   requestForms(): Observable<Form[]> {
-    return this.http.get<Form[]>('http://localhost:8080/forms');
+    return this.http.get<Form[]>(this.mainUrl + this.formsUrl);
   }
 
   getField() {
@@ -52,19 +55,19 @@ export class HomeService {
   }
 
   addFormItem(item: Form): void {
-    this.http.post<Form>('http://localhost:8080/forms', item).subscribe(data => console.log(data));
+    this.http.post<Form>(this.mainUrl + this.formsUrl, item).subscribe(data => console.log(data));
   }
 
   addFieldItem(item: Field): void {
-    this.http.post<Field>('http://localhost:8080/fields', item).subscribe(data => console.log(data));
+    this.http.post<Field>(this.mainUrl + this.fieldsUrl, item).subscribe(data => console.log(data));
   }
 
   deleteFormItem(id: number): void {
-    this.http.delete('http://localhost:8080/forms/' + id).subscribe(data => console.log(data));
+    this.http.delete(this.mainUrl + this.formsUrl + id).subscribe(data => console.log(data));
   }
 
   deleteFieldItem(id: number): void {
-    this.http.delete('http://localhost:8080/fields/' + id).subscribe(data => console.log(data));
+    this.http.delete(this.mainUrl + this.fieldsUrl + id).subscribe(data => console.log(data));
   }
 
   shareFormItem(id: number): void {

@@ -7,6 +7,15 @@ export enum FieldTypeEnum {
   'Autocomplete'
 }
 
+export let DefaultFilters = {
+  Number: true,
+  Text: true,
+  TextArea: true,
+  Checkbox: true,
+  Radio: true,
+  Autocomplete: true,
+}
+
 export interface Field {
     id: number;
     name: string;

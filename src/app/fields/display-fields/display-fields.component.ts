@@ -33,7 +33,7 @@ export class DisplayFieldsComponent implements OnInit {
 
   getFields(): void {
     this.homeService.requestFields()
-    .subscribe(incomingFields => {this.fields = incomingFields; console.log(incomingFields);});
+    .subscribe(incomingFields => this.fields = incomingFields);
   }
 
   searching(): string {
