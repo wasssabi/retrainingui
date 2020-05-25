@@ -65,4 +65,8 @@ export class HomeFieldsContainerComponent implements OnInit {
       console.log(reason);
     });
   }
+
+  typeGeneration(field: Field): string {
+    return FieldTypeEnum[field.fieldType];
+  }
 }

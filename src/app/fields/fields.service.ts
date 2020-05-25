@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 
-import { Field } from "../field";
+import { Field, DefaultFilters } from "../field";
 
 
 @Injectable ({
@@ -20,6 +20,5 @@ import { Field } from "../field";
     getSearch(): string{
       return this.searchString;
     }
-
 
   }

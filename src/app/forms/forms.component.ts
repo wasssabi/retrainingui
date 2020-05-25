@@ -19,13 +19,13 @@ export class FormsComponent implements OnInit {
   }
 
   get filterStatuses(): FormStatusEnum[] {
-    const statuses: FormStatusEnum[] = [];
-    if (this.draftStatus) {
-      statuses.push(FormStatusEnum.Draft);
-    }
-    if (this.publishedStatus) {
-      statuses.push(FormStatusEnum.Published);
-    }
-    return statuses;
+    let valuesList = Object.keys(FormStatusEnum);
+    return valuesList.slice(valuesList.length/2).map((value, index) => {
+      if (value == FormStatusEnum[0]){
+        return (this.draftStatus) ? index : -1;
+      }else{
+        return (this.publishedStatus) ? index : -1;
+      }
+    });
   }
 }

@@ -19,51 +19,13 @@
   </ul>
   <span>Type</span>
   <ul>
-    <li>
+    <li *ngFor="let type of filterKeys">
       <input
       type="checkbox"
-      [checked]="isNumberType"
-      (change)="changeNumberFilter($event.target.checked)"
-      >
-       Number
+      [checked]="filterList[type]"
+      (change)="changeFilter(type, filterList)">
+       {{type}}
       </li>
-    <li>
-      <input
-      type="checkbox"
-      [checked]="isTextType"
-      (change)="changeTextFilter($event.target.checked)"
-      >
-       Text
-      </li>
-    <li>
-      <input
-      type="checkbox"
-      [checked]="isTextAreaType"
-      (change)="changeTextAreaFilter($event.target.checked)"
-      >
-       TextArea
-      </li>
-    <li>
-      <input
-      type="checkbox"
-      [checked]="isCheckboxType"
-      (change)="changeCheckboxFilter($event.target.checked)"
-      >
-       Checkbox
-      </li>
-    <li>
-      <input
-      type="checkbox"
-      [checked]="isRadioType"
-      (change)="changeRadioFilter($event.target.checked)"
-      >
-       Radio
-      </li>
-    <li>
-      <input
-      type="checkbox"
-      [checked]="isAutocompleteType"
-      (change)="changeAutocompleteFilter($event.target.checked)"> Autocomplete</li>
   </ul>
   <span>Shared</span>
   <ul>
@@ -74,7 +36,6 @@
     <button  class="btn btn-default" (click)="openCreationModal(filterFieldContent)">Create Field</button>
   </div>
 </div>
-
 
 <ng-template #filterFieldContent let-fieldModal>
   <div class="modal-header">
@@ -106,4 +67,3 @@
     </button>
   </div>
 </ng-template>
-
