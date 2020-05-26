@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Form, FormStatusEnum } from '../../form';
 import { HomeService } from '../../home/home.service';
@@ -26,7 +26,7 @@ export class FormsFilterComponent implements OnInit {
   addingForm: FormGroup;
   formStatuses = FormStatus;
   newForm: Form;
-  
+
   constructor(
     private homeService: HomeService,
     private ngbModal: NgbModal,
@@ -68,17 +68,17 @@ export class FormsFilterComponent implements OnInit {
     this.ngbModal.open(content)
     .result.then(result => {
         this.newForm = {
-        id: null, 
-        formName: this.addingForm.get("title").value, 
-        formTitle: this.addingForm.get("description").value,
-        resultsUrl: "",
-        published: Boolean(FormStatusEnum[this.addingForm.get("status").value]),
+        id: null,
+        formName: this.addingForm.get('title').value,
+        formTitle: this.addingForm.get('description').value,
+        resultsUrl: '',
+        published: Boolean(FormStatusEnum[this.addingForm.get('status').value]),
         created: new Date().toISOString()
       };
-      this.homeService.addFormItem(this.newForm);
-      this.addingForm.reset({status: FormStatusEnum[0]});
+        this.homeService.addFormItem(this.newForm);
+        this.addingForm.reset({status: FormStatusEnum[0]});
     }, reason => {
       console.log(reason);
-    })
+    });
   }
 }

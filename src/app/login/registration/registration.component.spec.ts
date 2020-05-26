@@ -10,7 +10,7 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[FormsModule],
+      imports: [FormsModule],
       declarations: [ RegistrationComponent ]
     })
     .compileComponents();

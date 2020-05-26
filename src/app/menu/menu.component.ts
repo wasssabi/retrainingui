@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HomeService } from "../home/home.service";
+import { HomeService } from '../home/home.service';
 import { timer } from 'rxjs';
 import { UpdateTime } from '../updateTime';
 
@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
   constructor(private homeService: HomeService) { }
 
   ngOnInit(): void {
-    let refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
+    const refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
     refresh.subscribe(result => this.testMeth());
   }
 

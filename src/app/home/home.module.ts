@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home.component';
@@ -12,10 +12,10 @@ import { HomeFormsContainerComponent } from './home-forms-container/home-forms-c
 
 @NgModule({
   declarations: [
-    HomeComponent, 
+    HomeComponent,
     ItemComponent,
-    DescriptionComponent, 
-    HomeFormsContainerComponent, 
+    DescriptionComponent,
+    HomeFormsContainerComponent,
     HomeFieldsContainerComponent],
   imports: [
     CommonModule,

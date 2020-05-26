@@ -6,8 +6,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { FormsModulePr } from "./forms/forms.module";
-import { MenuComponent } from "./menu/menu.component";
+import { FormsModulePr } from './forms/forms.module';
+import { MenuComponent } from './menu/menu.component';
 import { FieldsModule } from './fields/fields.module';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { UserRegistrationService } from './login/registration/user-registration.service';
@@ -27,7 +27,7 @@ import { LoginComponent } from './login/login.component';
     HomeModule,
     FormsModulePr,
     FieldsModule,
-    HttpClientModule, 
+    HttpClientModule,
     ReactiveFormsModule
 ],
   providers: [UserRegistrationService],
