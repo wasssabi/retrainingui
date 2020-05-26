@@ -13,13 +13,11 @@ import { passwordConfirmationValidator } from '../../shared/password-confirmatio
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-    private service: UserRegistrationService) { }
+  constructor(private formBuilder: FormBuilder, private service: UserRegistrationService) { }
 
   ngOnInit(): void {
-    
     this.registrationForm = this.formBuilder.group({
-      email: ["qwe"],
+      email: ['qwe'],
       isActive: [true],
       username: [
         '',

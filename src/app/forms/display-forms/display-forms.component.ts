@@ -13,7 +13,7 @@ import { UpdateTime } from '../../updateTime';
   styleUrls: ['./display-forms.component.css']
 })
 export class DisplayFormsComponent implements OnInit {
-  @Input() forms : Form[];
+  @Input() forms: Form[];
   @Input() filterStatuses: FormStatusEnum[];
   @Input() isSortByName: boolean;
   @Input() isSortByDate: boolean;
@@ -28,7 +28,7 @@ export class DisplayFormsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
+    const refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
     refresh.subscribe(result => this.getForms());
     this.searching();
   }
@@ -66,3 +66,4 @@ export class DisplayFormsComponent implements OnInit {
     return FormStatusEnum[Number(form.published)];
   }
 }
+

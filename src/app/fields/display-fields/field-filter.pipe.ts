@@ -1,8 +1,8 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 import { Field, FieldTypeEnum } from '../../field';
 
 @Pipe({
-  name: 'fieldFilterPipe'
+  name: 'FieldFilterPipe'
 })
 
 export class FieldFilterPipe implements PipeTransform {

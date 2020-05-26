@@ -6,13 +6,13 @@ import { Field } from 'src/app/field';
 })
 export class FieldSearchPipe implements PipeTransform {
   transform(fields: Field[], search: string = ''): Field[] {
-    if(!search.trim()){
-      return fields
+    if (!search.trim()){
+      return fields;
     }
 
     return fields.filter(field => {
-      return field.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
-    })
+      return field.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    });
 
   }
 

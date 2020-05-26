@@ -1,10 +1,10 @@
 
 
 export const FieldType = [
-    "Number",
-    "Text",
-    "TextArea",
-    "Checkbox",
-    "Radio",
-    "Autocomplete"
-]
+    'Number',
+    'Text',
+    'TextArea',
+    'Checkbox',
+    'Radio',
+    'Autocomplete'
+];

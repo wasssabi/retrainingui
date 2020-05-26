@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { environment } from "../../environments/environment";
+import { environment } from '../../environments/environment';
 
 import { Form } from '../form';
 import { Field } from '../field';
@@ -24,7 +24,6 @@ export class HomeService {
 
   requestFields() {
     return this.http.get<Field[]>(this.mainUrl + this.fieldsUrl);
-    
   }
 
   requestForms(): Observable<Form[]> {
@@ -34,7 +33,7 @@ export class HomeService {
   getField() {
     this.requestFields()
     .subscribe(incomingField => {
-      for(let i in incomingField){
+      for (let i in incomingField){
         console.log(i);
       }
       console.log(incomingField);

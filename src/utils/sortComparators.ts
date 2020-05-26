@@ -6,7 +6,7 @@ export const compareStringsAsc = (a: string, b: string): number => {
     return 1;
   }
   return 0;
-}
+};
 
 export const compareDatesAsc = (a: Date, b: Date): number => {
   if (a < b){
@@ -16,4 +16,4 @@ export const compareDatesAsc = (a: Date, b: Date): number => {
     return 1;
   }
   return 0;
-}
+};

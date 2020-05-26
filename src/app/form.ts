@@ -4,10 +4,11 @@ export enum FormStatusEnum {
 }
 
 export interface Form {
-  id: number,
-  formName: string,
-  formTitle: string,
-  resultsUrl: string,
-  created: string,
-  published: boolean
+  id: number;
+  formName: string;
+  formTitle: string;
+  resultsUrl: string;
+  created: string;
+  published: boolean;
 }
+
