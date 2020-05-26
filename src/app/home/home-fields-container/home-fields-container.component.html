@@ -1,25 +1,25 @@
-<p class="fields-header">Fields</p>
+<h1 label="Fields header" class="fields-header">Fields</h1>
 <div class="container">
   <div class="row">
     <div class="cardBlock col-sm-12 col-md-12 col-lg-6 col-xl-4">
       <div class="Field col-12 mx-1 my-2" (click)="open(content)">
-        <p>+</p>
+        <a href="#" label="Add field link">+</a>
       </div>
     </div>
     <div *ngFor="let field of fields" class="cardBlock col-sm-12 col-md-12 col-lg-6 col-xl-4">
       <div class="card col-12 mx-1 my-2">
         <div class="card-header">
-            <h3 class="card-title">
+            <h2 label="field.name Field" class="card-title">
               {{field.name}}
-            </h3>
+            </h2>
         </div>
         <div class="card-body">
           <p class="card-text">{{typeGeneration(field)}}</p>
           <p class="card-text">{{field.created | date: 'longDate'}} </p>
         </div>
         <div class="card-footer">
-          <button class="btn btn-default">View <i class="fas fa-eye"></i></button>
-          <button class="btn btn-default">Share <i class="fas fa-paper-plane"></i></button>
+          <button label="View details button" class="btn btn-default">View <i class="fas fa-eye"></i></button>
+          <button label="Share item button" class="btn btn-default">Share <i class="fas fa-paper-plane"></i></button>
         </div>
       </div>
     </div>

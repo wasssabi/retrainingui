@@ -6,9 +6,9 @@
       <div *ngFor="let field of (fields | FieldFilterPipe:filterTypes | FieldOrderByPipe:isSortByName:isSortByDate | fieldSearch: searching())" class="col-sm-12 p-2">
         <div class="card">
           <div class="header">
-            <h3 class="card-title">
+            <h1 class="card-title">
               {{field.name}}
-            </h3>
+            </h1>
           </div>
           <div class="card-body">
             <div class="content">
