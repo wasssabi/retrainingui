@@ -12,7 +12,7 @@ import { FieldType } from 'src/app/home/home-fields-container/fieldType';
 })
 export class FieldsFilterComponent implements OnInit {
 
-  @Input() fields : Field[];
+  @Input() fields: Field[];
   @Input() outFilterList: object;
 
   @Output('isSortByNameChange') isSortByNameEmitter: EventEmitter<boolean> = new EventEmitter();
@@ -23,8 +23,8 @@ export class FieldsFilterComponent implements OnInit {
   filterKeys = Object.keys(DefaultFilters);
   fieldType = FieldType;
   newField: Field;
-  isSortByName: boolean = false;
-  isSortByDate: boolean = false;
+  isSortByName = false;
+  isSortByDate = false;
 
   constructor(
     private homeService: HomeService,
@@ -62,11 +62,11 @@ export class FieldsFilterComponent implements OnInit {
     this.ngbModal
     .open(content)
     .result.then(result => {
-      if(result.name) {
+      if (result.name) {
         this.newField = {
           id: null,
           name: result.name,
-          fieldType: parseInt(FieldTypeEnum[result.type]),
+          fieldType: parseInt((FieldTypeEnum[result.type]), 10),
           created: new Date().toISOString(),
           isStrict: true,
           ownerId: null
@@ -75,6 +75,6 @@ export class FieldsFilterComponent implements OnInit {
       }
     }, reason => {
       console.log(reason);
-    })
+    });
   }
 }

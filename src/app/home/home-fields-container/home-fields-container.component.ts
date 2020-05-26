@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
-import { Field, FieldTypeEnum } from "src/app/field";
-import { HomeService } from "src/app/home/home.service";
-import { FieldType } from "./fieldType";
+import { Field, FieldTypeEnum } from 'src/app/field';
+import { HomeService } from 'src/app/home/home.service';
+import { FieldType } from './fieldType';
 import { timer } from 'rxjs';
-import { UpdateTime } from "../../updateTime";
+import { UpdateTime } from '../../updateTime';
 
 
 @Component({
-  selector: 'home-fields-container',
+  selector: 'app-home-fields-container',
   templateUrl: './home-fields-container.component.html',
   styleUrls: ['./home-fields-container.component.css']
 })
@@ -30,11 +30,10 @@ export class HomeFieldsContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
+    const refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
     refresh.subscribe(result => this.getFields());
     this.generateReactForm();
     console.log(FieldTypeEnum.Number);
-    
   }
 
   getFields(): void {
@@ -52,9 +51,9 @@ export class HomeFieldsContainerComponent implements OnInit {
   open(content) {
     this.ngbModal.open(content).result.then(result => {
       this.newField = {
-        id: null, 
-        name: this.addingForm.get('title').value, 
-        fieldType: parseInt(FieldTypeEnum[this.addingForm.get('type').value]),
+        id: null,
+        name: this.addingForm.get('title').value,
+        fieldType: parseInt((FieldTypeEnum[this.addingForm.get('type').value]), 10),
         created: new Date().toISOString(),
         isStrict: true,
         ownerId: null

@@ -14,7 +14,7 @@ export let DefaultFilters = {
   Checkbox: true,
   Radio: true,
   Autocomplete: true,
-}
+};
 
 export interface Field {
     id: number;

@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
-import { Field, DefaultFilters } from "../field";
+import { Field, DefaultFilters } from '../field';
 
 
 @Injectable ({

@@ -9,6 +9,6 @@ export const passwordConfirmationValidator = (passwordField: string, confirmPass
     const confirmPasswordValue = passwordConfirmationInput?.value ?? '';
 
     const isEqual = passwordValue === confirmPasswordValue;
-    return isEqual ? null : { 'passwordConfirmation': true };
+    return isEqual ? null : { passwordConfirmation: true };
   };
 };
