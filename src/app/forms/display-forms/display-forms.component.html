@@ -2,9 +2,9 @@
   <div *ngFor="let form of (forms | formFilterPipe:filterStatuses | formOrderByPipe:isSortByName:isSortByDate | FormSearch: searching())" class="col-sm-6 p-2">
     <div class="card">
       <div class="header">
-        <h3 class="card-title">
+        <h1 class="card-title">
           {{form.formName}}
-        </h3>
+        </h1>
       </div>
       <div class="card-body">
         <p class="card-description">{{form.formTitle}}</p>

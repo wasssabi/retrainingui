@@ -1,11 +1,12 @@
-<form class="search-form">
-  <input 
+<form label="Search by name" class="search-form">
+    <input 
     #search 
+    label="Search by name"
     type="text" 
     placeholder="Search.." 
     name="search" 
     (keydown.enter)="searching(search.value)"
   >
-  <button type="button" (click)="searching(search.value)">Search</button>
+  <button label="Search form item button" type="button" (click)="searching(search.value)">Search</button>
 </form>
 

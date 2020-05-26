@@ -1,68 +1,78 @@
 <div class="filter-container">
-  <span>Sort</span>
+  <span label="Sorting options">Sort</span>
   <ul>
     <li>
-      <input type="checkbox"
-      [checked]="isSortByName"
-      (change)="changeSortByName($event.target.checked)"
+      <label>
+        <input 
+        label="Sorting by name"
+        type="checkbox"
+        [checked]="isSortByName"
+        (change)="changeSortByName($event.target.checked)"
       >
       By Name
+      </label>
     </li>
     <li>
-      <input
+      <label>
+        <input
+      label="Sorting by date"
       type="checkbox"
       [checked]="isSortByDate"
       (change)="changeSortByDate($event.target.checked)"
       >
        By Date
+      </label>
       </li>
   </ul>
-  <span>Type</span>
+  <span label="Filter by type">Type</span>
   <ul>
     <li *ngFor="let type of filterKeys">
-      <input
+      <label>
+        <input
+      label="Filter by type"
       type="checkbox"
       [checked]="filterList[type]"
       (change)="changeFilter(type, filterList)">
        {{type}}
+      </label>
       </li>
   </ul>
-  <span>Shared</span>
+  <span label="Filter by sharing status">Shared</span>
   <ul>
-    <li><input type="checkbox"> Shared with me</li>
-    <li><input type="checkbox"> My Fields</li>
+    <li><label><input label="Shared with me items" type="checkbox"> Shared with me</label></li>
+    <li><label><input label="Shared with my friends items"type="checkbox"> My Fields</label></li>
   </ul>
   <div class="center-button">
-    <button  class="btn btn-default" (click)="openCreationModal(filterFieldContent)">Create Field</button>
+    <button label="Add new field" class="btn btn-default" (click)="openCreationModal(filterFieldContent)">Create Field</button>
   </div>
 </div>
 
 <ng-template #filterFieldContent let-fieldModal>
   <div class="modal-header">
     <h4 class="modal-title">New Field</h4>
-    <button type="button" class="close" aria-label="Close" (click)="fieldModal.dismiss('closed')">
+    <button label="Close window button"  type="button" class="close" aria-label="Close" (click)="fieldModal.dismiss('closed')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <form>
       <div class="form-group">
-          <label >Title</label>
-          <input [(ngModel)]="fieldModal.name" name="name" [id]="fieldModal.id+1" type="text" class="form-control" placeholder="Add Title">
+          <label>Title</label>
+          <input label="Add field title" [(ngModel)]="fieldModal.name" name="name" [id]="fieldModal.id+1" type="text" class="form-control" placeholder="Add Title">
       </div>
       <div class="form-group">
         <label>Field Type</label>
-        <select [(ngModel)]="fieldModal.type" name="type" class="form-control">
+        <select label="Select field type from the list" [(ngModel)]="fieldModal.type" name="type" class="form-control">
           <option *ngFor="let type of fieldType">{{type}}</option>
         </select>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-default" type="button" (click)="fieldModal.dismiss('closed')">
+    <button label="Close window button" class="btn btn-default" type="button" (click)="fieldModal.dismiss('closed')">
       Cancel
     </button>
-    <button class="btn btn-primary" type="button" (click)="fieldModal.close(fieldModal)">
+    <button label="Save form button" class="btn btn-primary" type="button" (click)="fieldModal.close(fieldModal)">
       Add
     </button>
   </div>
