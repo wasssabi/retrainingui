@@ -3,23 +3,23 @@
   <ul>
     <li>
       <label>
-      <input 
+      <input
         label="Sorting by Name"
         type="checkbox"
-        [checked]="isSortByName" 
+        [checked]="isSortByName"
         (change)="changeSortByName($event.target.checked)"
-      > 
+      >
         By Name
       </label>
     </li>
     <li>
       <label>
-        <input 
+        <input
         label="Sorting by Date"
           type="checkbox"
-          [checked]="isSortByDate" 
+          [checked]="isSortByDate"
           (change)="changeSortByDate($event.target.checked)"
-        > 
+        >
           By Date
       </label>
     </li>
@@ -28,23 +28,23 @@
   <ul>
     <li>
       <label>
-        <input 
+        <input
         label="Remain published status"
-        type="checkbox" 
-        [checked]="isPublishedStatus" 
+        type="checkbox"
+        [checked]="isPublishedStatus"
         (change)="changePublishedFilter($event.target.checked)"
-      > 
+      >
         Published
-      </label> 
+      </label>
     </li>
     <li>
       <label>
-        <input 
+        <input
       label="Remain draft status"
-        type="checkbox" 
-        [checked]="isDraftStatus" 
+        type="checkbox"
+        [checked]="isDraftStatus"
         (change)="changeDraftFilter($event.target.checked)"
-      > 
+      >
         Draft
       </label>
     </li>
@@ -56,7 +56,7 @@
 
 <ng-template #filterFormContent let-formModal>
   <div class="modal-header">
-    <h4 label="Form Title" class="modal-title">New Form</h4>
+    <h1 label="Form Title" class="modal-title">New Form</h1>
     <button label="Close window button" type="button" class="close" aria-label="Close" (click)="formModal.dismiss()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -64,26 +64,29 @@
   <div class="modal-body">
     <form [formGroup]="addingForm">
     <div class="form-group">
-      <label>Title</label>
-        <input 
-        label="Add form title" 
-        type="text" 
-        formControlName="title" 
-        class="form-control" 
+      <label for="formTitle">Title</label>
+        <input
+        id="formTitle"
+        label="Add form title"
+        type="text"
+        formControlName="title"
+        class="form-control"
         placeholder="Add Title">
       </div>
       <div class="form-group">
-        <select label="Select form status from the list" class="form-control" formControlName="status">
+        <label for="selectedStatus">Status</label>
+        <select id="selectedStatus" label="Select form status from the list" class="form-control" formControlName="status">
           <option *ngFor="let status of formStatuses">{{status}}</option>
         </select>
       </div>
       <div class="form-group">
-      <label>Form Description</label>
-      <textarea 
-        label="Add form description" 
-        formControlName="description" 
-        class="form-control" 
-        rows="3" 
+      <label for="formDescription">Form Description</label>
+      <textarea
+        id="formDescription"
+        label="Add form description"
+        formControlName="description"
+        class="form-control"
+        rows="3"
         placeholder="add description">
       </textarea>
       </div>

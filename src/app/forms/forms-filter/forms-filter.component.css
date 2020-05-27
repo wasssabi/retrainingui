@@ -19,3 +19,7 @@ button {
 button:hover {
   background-color:#d3d4cd;
 }
+
+h1 {
+  font-size: 1.5em;
+}
