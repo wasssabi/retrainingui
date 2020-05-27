@@ -1,34 +1,34 @@
 <div class="filter-container">
-  <span label="Sorting options">Sort</span>
-  <ul>
+  <h1 id="sort-filter-header">Sort</h1>
+  <ul role="list" aria-labelledby="sort-filter-header">
     <li>
-      <label>
-        <input 
-        label="Sorting by name"
+        <input
+        role="checkbox"
+        id="byName"
         type="checkbox"
         [checked]="isSortByName"
         (change)="changeSortByName($event.target.checked)"
       >
-      By Name
-      </label>
+      <label for="byName">By Name</label>
     </li>
     <li>
-      <label>
-        <input
+      <input
+      role="checkbox"
+      id="byDate"
       label="Sorting by date"
       type="checkbox"
       [checked]="isSortByDate"
       (change)="changeSortByDate($event.target.checked)"
       >
-       By Date
-      </label>
+      <label for="byDate">By Date</label>
       </li>
   </ul>
-  <span label="Filter by type">Type</span>
-  <ul>
+  <h1 label="Filter by type">Type</h1>
+  <ul role="list" aria-labelledby="sort-filter-header">
     <li *ngFor="let type of filterKeys">
       <label>
         <input
+      role="checkbox"
       label="Filter by type"
       type="checkbox"
       [checked]="filterList[type]"
@@ -37,10 +37,10 @@
       </label>
       </li>
   </ul>
-  <span label="Filter by sharing status">Shared</span>
-  <ul>
-    <li><label><input label="Shared with me items" type="checkbox"> Shared with me</label></li>
-    <li><label><input label="Shared with my friends items"type="checkbox"> My Fields</label></li>
+  <h1 id="shared-title">Shared</h1>
+  <ul role="list" aria-labelledby="shared-title">
+    <li><label><input role="checkbox" type="checkbox"> Shared with me</label></li>
+    <li><label><input role="checkbox" type="checkbox"> My Fields</label></li>
   </ul>
   <div class="center-button">
     <button label="Add new field" class="btn btn-default" (click)="openCreationModal(filterFieldContent)">Create Field</button>
@@ -55,14 +55,14 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form role="form">
       <div class="form-group">
-          <label>Title</label>
-          <input label="Add field title" [(ngModel)]="fieldModal.name" name="name" [id]="fieldModal.id+1" type="text" class="form-control" placeholder="Add Title">
+          <label for="{{fieldModal.id+1}}">Title</label>
+          <input role="text" [(ngModel)]="fieldModal.name" name="name" [id]="fieldModal.id+1" type="text" class="form-control" placeholder="Add Title">
       </div>
       <div class="form-group">
-        <label>Field Type</label>
-        <select label="Select field type from the list" [(ngModel)]="fieldModal.type" name="type" class="form-control">
+        <label for="selectedType">Field Type</label>
+        <select id="selectedType" label="Select field type from the list" [(ngModel)]="fieldModal.type" name="type" class="form-control">
           <option *ngFor="let type of fieldType">{{type}}</option>
         </select>
       </div>
