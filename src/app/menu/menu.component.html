@@ -4,18 +4,18 @@
   </div>
   <div class = "options">
     <ul role="navigation" label="Navigation menu" class= "navbar-nav">
-      <li label="Home link" class="nav-item" routerLink="home">
+      <li label="Home link" class="nav-item" (click)="gotoItems('home')">
         <h2 label="Home link">Home</h2>
       </li>
-      <li label="Forms link" class="nav-item" routerLink="forms">
+      <li label="Forms link" class="nav-item" (click)="gotoItems('forms')">
         <h2 label="Forms link">Forms</h2>
       </li>
-      <li label="Fields link" class="nav-item" routerLink="fields">
+      <li label="Fields link" class="nav-item" (click)="gotoItems('fields')">
         <h2 label="Fields link">Fields</h2>
       </li>
     </ul>
     <div class="logSection">
-      <button label="Log in button" *ngIf="!userToken" class="btn btn-default" routerLink="login"> Log in</button>
+      <button label="Log in button" *ngIf="!userToken" class="btn btn-default" routerLink=""> Log in</button>
       <button label="Log out button" *ngIf="userToken" class="btn btn-default" (click)="deleteToken()"> Log out</button>
     </div>
   </div>

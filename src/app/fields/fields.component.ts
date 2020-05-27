@@ -11,6 +11,7 @@ export class FieldsComponent implements OnInit {
 
   sortByName: boolean;
   sortByDate: boolean;
+  myOwnFields: boolean;
   inFilterTypes = DefaultFilters;
   testList = this.inFilterTypes;
   outFilterTypes: FieldTypeEnum[];

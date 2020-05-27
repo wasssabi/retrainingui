@@ -9,7 +9,9 @@ export const environment = {
   formsPage: 'forms/',
   apiUsers: 'auth/',
   apiRegistration: 'registration/',
-  apiLogin: 'login/'
+  apiLogin: 'login/',
+  apiCurrentUser: 'current/',
+  apiAllUsers: 'allother/'
 };
 
 /*

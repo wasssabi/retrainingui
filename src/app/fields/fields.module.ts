@@ -8,6 +8,7 @@ import { SearchFieldsComponent } from './search-fields/search-fields.component';
 import { FieldSearchPipe } from './search-fields/field-search.pipe';
 import { FieldFilterPipe } from './display-fields/field-filter.pipe';
 import { FieldOrderByPipe } from './display-fields/field-order.pipe';
+import { FieldSharedPipe } from './display-fields/field-shared.pipe';
 import { FormsModule } from '@angular/forms';
 
 
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     SearchFieldsComponent,
     FieldSearchPipe,
     FieldFilterPipe,
-    FieldOrderByPipe
+    FieldOrderByPipe,
+    FieldSharedPipe
 
   ],
   imports: [

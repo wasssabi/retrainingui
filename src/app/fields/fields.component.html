@@ -4,6 +4,7 @@
       <app-fields-filter 
         (isSortByNameChange)="this.sortByName=$event"
         (isSortByDateChange)="this.sortByDate=$event"
+        (myFieldsShown)="this.myOwnFields=$event"
         (updatedFilterList)="this.inFilterTypesGeneration($event)"></app-fields-filter>
     </div>
     <div class="col-sm-9">
@@ -12,6 +13,7 @@
       </div>
       <div class="displayFields">
         <app-display-fields
+          [myFields]="myOwnFields"
           [filterTypes]="outFilterTypes"
           [isSortByName]="sortByName"
           [isSortByDate]="sortByDate"

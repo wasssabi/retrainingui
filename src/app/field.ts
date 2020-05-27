@@ -21,6 +21,6 @@ export interface Field {
     name: string;
     fieldType: number;
     isStrict: boolean;
-    ownerId: number;
+    ownersId: number;
     created: string;
 }

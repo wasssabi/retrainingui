@@ -61,9 +61,9 @@ export class RegistrationComponent implements OnInit {
       console.error('An error occurred:', error.error.message);
     } else {
       console.error(
-        `Backend returned code ${error.status}\n` +
-        `With message: ${error.error.message}\n` +
-        `body was: ${JSON.stringify(error.error)}`);
+        `code: ${error.status}\n` +
+        `message: ${error.error.message}\n` +
+        `body: ${JSON.stringify(error.error)}`);
     }
     return throwError(
       'Something bad happened; please try again later.');

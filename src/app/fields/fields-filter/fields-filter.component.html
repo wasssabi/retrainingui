@@ -39,8 +39,17 @@
   </ul>
   <h1 id="shared-title">Shared</h1>
   <ul role="list" aria-labelledby="shared-title">
-    <li><label><input role="checkbox" type="checkbox"> Shared with me</label></li>
-    <li><label><input role="checkbox" type="checkbox"> My Fields</label></li>
+    <li><label>
+      <input 
+        role="checkbox" 
+        type="checkbox"> Shared with me</label></li>
+    <li><label>
+      <input
+        [checked]="myFields"
+        (change)="changeShowMyFields($event.target.checked)"
+        role="checkbox" 
+        type="checkbox"
+        > My Fields</label></li>
   </ul>
   <div class="center-button">
     <button label="Add new field" class="btn btn-default" (click)="openCreationModal(filterFieldContent)">Create Field</button>

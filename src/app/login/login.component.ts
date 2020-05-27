@@ -6,6 +6,7 @@ import { HomeService } from '../home/home.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
-    private homeService: HomeService) { }
+    private homeService: HomeService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loginFormGeneration();
@@ -43,8 +45,9 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginForm.value).pipe(
       catchError(this.handleError)
     ).subscribe(data => {
-      this.homeService.setToken(JSON.stringify(data.token));
+      this.homeService.setToken(data.token.toString());
       this.loginForm.reset();
+      this.router.navigate(['home']);
       alert('Logged in');
     });
   }
@@ -54,11 +57,16 @@ export class LoginComponent implements OnInit {
       console.error('An error occurred:', error.error.message);
     } else {
       console.error(
-        `Backend returned code ${error.status}\n` +
-        `With message: ${error.error.message}\n` +
-        `body was: ${JSON.stringify(error.error)}`);
+        `code: ${error.status}\n` +
+        `message: ${error.error.message}\n` +
+        `body: ${JSON.stringify(error.error)}`);
     }
     return throwError(
       'Something bad happened; please try again later.');
+  }
+
+  getCurrentUser() {
+    this.homeService.getCurrentUser().subscribe(
+      data => console.log(data));
   }
 }

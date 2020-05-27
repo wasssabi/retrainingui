@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'forms', component: FormsComponent},
   {path: 'fields', component: FieldsComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: 'login', component: LoginComponent}
+  {path: '', component: LoginComponent}
 ];
 
 @NgModule({
