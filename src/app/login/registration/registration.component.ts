@@ -10,6 +10,7 @@ import { safePasswordValidator } from 'src/app/shared/form-validator/safe-passwo
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -21,6 +22,7 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private service: UserRegistrationService,
+    private router: Router,
     @Inject(APPLICATION_LENGTHS) public appLengthsConst: typeof ApplicationLengthsEnum) { }
 
   ngOnInit(): void {
@@ -53,6 +55,7 @@ export class RegistrationComponent implements OnInit {
       catchError(this.handleError)
     ).subscribe(data => {
       alert(data);
+      this.router.navigate([''])
     });
   }
 
