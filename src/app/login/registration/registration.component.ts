@@ -7,6 +7,9 @@ import { passwordConfirmationValidator } from '../../shared/form-validator/passw
 import { ApplicationLengthsEnum } from 'src/app/shared/consts';
 import { APPLICATION_LENGTHS } from 'src/app/shared/consts-injection-tokens';
 import { safePasswordValidator } from 'src/app/shared/form-validator/safe-password-validator';
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-registration',
@@ -46,8 +49,23 @@ export class RegistrationComponent implements OnInit {
   public signUp(): void {
     console.log(this.form);
     const response = this.service.register(this.registrationForm.value);
-    response.subscribe(data => {
+    response.pipe(
+      catchError(this.handleError)
+    ).subscribe(data => {
       alert(data);
     });
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}\n` +
+        `With message: ${error.error.message}\n` +
+        `body was: ${JSON.stringify(error.error)}`);
+    }
+    return throwError(
+      'Something bad happened; please try again later.');
   }
 }
