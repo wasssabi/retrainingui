@@ -6,7 +6,10 @@ export const environment = {
   production: false,
   apiURL: 'http://localhost:8080/',
   fieldsPage: 'fields/',
-  formsPage: 'forms/'
+  formsPage: 'forms/',
+  apiUsers: 'auth/',
+  apiRegistration: 'registration/',
+  apiLogin: 'login/'
 };
 
 /*

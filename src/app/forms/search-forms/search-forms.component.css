@@ -29,3 +29,7 @@ form.search-form::after {
   clear: both;
   display: table;
 }
+
+h1 {
+	font-size: 1.2em;
+}

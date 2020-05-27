@@ -23,11 +23,15 @@ export class HomeService {
   fieldsUrl = environment.fieldsPage;
 
   requestFields() {
-    return this.http.get<Field[]>(this.mainUrl + this.fieldsUrl);
+    return this.http.get<Field[]>(this.mainUrl + this.fieldsUrl).pipe(
+      catchError(this.handleError)
+    );
   }
 
   requestForms(): Observable<Form[]> {
-    return this.http.get<Form[]>(this.mainUrl + this.formsUrl);
+    return this.http.get<Form[]>(this.mainUrl + this.formsUrl).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getField() {
@@ -54,19 +58,27 @@ export class HomeService {
   }
 
   addFormItem(item: Form): void {
-    this.http.post<Form>(this.mainUrl + this.formsUrl, item).subscribe(data => console.log(data));
+    this.http.post<Form>(this.mainUrl + this.formsUrl, item).pipe(
+      catchError(this.handleError)
+    );
   }
 
   addFieldItem(item: Field): void {
-    this.http.post<Field>(this.mainUrl + this.fieldsUrl, item).subscribe(data => console.log(data));
+    this.http.post<Field>(this.mainUrl + this.fieldsUrl, item).pipe(
+      catchError(this.handleError)
+    );
   }
 
   deleteFormItem(id: number): void {
-    this.http.delete(this.mainUrl + this.formsUrl + id).subscribe(data => console.log(data));
+    this.http.delete(this.mainUrl + this.formsUrl + id).pipe(
+      catchError(this.handleError)
+    );
   }
 
   deleteFieldItem(id: number): void {
-    this.http.delete(this.mainUrl + this.fieldsUrl + id).subscribe(data => console.log(data));
+    this.http.delete(this.mainUrl + this.fieldsUrl + id).pipe(
+      catchError(this.handleError)
+    );
   }
 
   shareFormItem(id: number): void {
@@ -74,4 +86,18 @@ export class HomeService {
 
   shareFieldItem(id: number): void {
   }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}\n` +
+        `With message: ${error.error.message}\n` +
+        `body was: ${JSON.stringify(error.error)}`);
+    }
+    return throwError(
+      'Something bad happened; please try again later.');
+  }
+
 }

@@ -1,34 +1,33 @@
 <div class="filter-container">
-  <span label="Sorting options">Sort</span>
-  <ul>
+  <h1 id="sort-filter-header">Sort</h1>
+  <ul role="list" aria-labelledby="sort-filter-header">
     <li>
-      <label>
-      <input
-        label="Sorting by Name"
+      <input 
+        role="checkbox"
+        id="byName"
         type="checkbox"
         [checked]="isSortByName"
         (change)="changeSortByName($event.target.checked)"
-      >
-        By Name
-      </label>
+      > 
+      <label for="byName">By Name</label>
     </li>
     <li>
-      <label>
-        <input
-        label="Sorting by Date"
-          type="checkbox"
-          [checked]="isSortByDate"
-          (change)="changeSortByDate($event.target.checked)"
-        >
-          By Date
-      </label>
+      <input 
+        role="checkbox"
+        id="byDate"
+        type="checkbox"
+        [checked]="isSortByDate" 
+        (change)="changeSortByDate($event.target.checked)"
+      >
+      <label for="byDate">By Date</label>
     </li>
   </ul>
-  <span label="Filtering by status">Status</span>
-  <ul>
+  <h1 id="status-filter-header">Status</h1>
+  <ul role="list" aria-labelledby="status-filter-header">
     <li>
       <label>
-        <input
+        <input 
+        role="checkbox"
         label="Remain published status"
         type="checkbox"
         [checked]="isPublishedStatus"
@@ -39,10 +38,11 @@
     </li>
     <li>
       <label>
-        <input
-      label="Remain draft status"
-        type="checkbox"
-        [checked]="isDraftStatus"
+        <input 
+        role="checkbox"
+        label="Remain draft status"
+        type="checkbox" 
+        [checked]="isDraftStatus" 
         (change)="changeDraftFilter($event.target.checked)"
       >
         Draft
@@ -50,14 +50,14 @@
     </li>
   </ul>
   <div class="center-button">
-    <button label="Create new form button" class="btn btn-default" (click)="openCreationModal(filterFormContent)">Create Form</button>
+    <button label="Create new form" class="btn btn-default" (click)="openCreationModal(filterFormContent)">Create Form</button>
   </div>
 </div>
 
-<ng-template #filterFormContent let-formModal>
+<ng-template role="window" #filterFormContent let-formModal>
   <div class="modal-header">
-    <h1 label="Form Title" class="modal-title">New Form</h1>
-    <button label="Close window button" type="button" class="close" aria-label="Close" (click)="formModal.dismiss()">
+    <h4 label="Form Title" class="modal-title">New Form</h4>
+    <button label="Close window" type="button" class="close" aria-label="Close" (click)="formModal.dismiss()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>

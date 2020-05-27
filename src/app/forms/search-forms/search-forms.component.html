@@ -1,12 +1,12 @@
-<form label="Search by name" class="search-form">
-    <input aria-label="search"
-    #search
-    label="Search by name"
-    type="text"
-    placeholder="Search.."
-    name="search"
+<form role="search" aria-label="search" class="search-form">
+    <input 
+    #search 
+    id="search" 
+    type="text" 
+    placeholder="Search.." 
+    name="search" 
     (keydown.enter)="searching(search.value)"
   >
-  <button label="Search form item button" type="button" (click)="searching(search.value)">Search</button>
+  <button label="confirm search" type="button" (click)="searching(search.value)">Search</button>
+  <label for="search" class="visuallyhidden">Search by name</label>
 </form>
-

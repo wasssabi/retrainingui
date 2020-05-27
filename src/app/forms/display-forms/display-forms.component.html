@@ -1,15 +1,16 @@
-<div class="row col-sm-12">
+<div aria-labelledby="forms-list" class="row col-sm-12">
+  <h1 id="forms-list" class="visuallyhidden">Forms list</h1>
   <div *ngFor="let form of (forms | formFilterPipe:filterStatuses | formOrderByPipe:isSortByName:isSortByDate | FormSearch: searching())" class="col-sm-6 p-2">
     <div class="card">
       <div class="header">
-        <h1 class="card-title">
+        <h2 class="card-title">
           {{form.formName}}
-        </h1>
+        </h2>
       </div>
       <div class="card-body">
-        <p class="card-description">{{form.formTitle}}</p>
-        <p>Status: {{statusGeneration(form)}}</p>
-        <p>Created at: {{dateGeneration(form).toLocaleString()}}
+        <p role="text" aria-label="description" class="card-description">{{form.formTitle}}</p>
+        <p role="text" aria-label="status">Status: {{statusGeneration(form)}}</p>
+        <p role="text" aria-label="created">Created at: {{dateGeneration(form).toLocaleString()}}
       <div class="buttons">
         <button class="btn btn-default" (click)="openViewModal(formContent, form)">
           View <i class="fas fa-eye"></i>
