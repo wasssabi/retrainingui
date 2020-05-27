@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home/home.service';
 import { timer } from 'rxjs';
 import { UpdateTime } from '../updateTime';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +14,9 @@ export class MenuComponent implements OnInit {
   loginService: any;
   userToken: string;
 
-  constructor(private homeService: HomeService) { }
+  constructor(
+    private homeService: HomeService,
+    private router: Router) { }
 
   ngOnInit(): void {
     const refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
@@ -31,5 +34,12 @@ export class MenuComponent implements OnInit {
 
   deleteToken() {
     this.homeService.clearToken();
+    this.router.navigate(['']);
+  }
+
+  gotoItems(item: string) {
+    if (this.userToken) {
+      this.router.navigate([item]);
+    }
   }
 }

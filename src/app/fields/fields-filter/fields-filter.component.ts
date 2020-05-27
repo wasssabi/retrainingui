@@ -15,9 +15,11 @@ export class FieldsFilterComponent implements OnInit {
   @Input() fields: Field[];
   @Input() outFilterList: object;
 
+
   @Output('isSortByNameChange') isSortByNameEmitter: EventEmitter<boolean> = new EventEmitter();
   @Output('isSortByDateChange') isSortByDateEmitter: EventEmitter<boolean> = new EventEmitter();
   @Output('updatedFilterList') FilterListEmitter: EventEmitter<object> = new EventEmitter();
+  @Output('myFieldsShown') myFieldsEmmiter: EventEmitter<boolean> = new EventEmitter();
 
   filterList: object = DefaultFilters;
   filterKeys = Object.keys(DefaultFilters);
@@ -25,6 +27,7 @@ export class FieldsFilterComponent implements OnInit {
   newField: Field;
   isSortByName = false;
   isSortByDate = false;
+  myFields = true;
 
   constructor(
     private homeService: HomeService,
@@ -53,6 +56,11 @@ export class FieldsFilterComponent implements OnInit {
     this.isSortByNameEmitter.emit(value);
   }
 
+  changeShowMyFields(value: boolean) {
+    this.myFields = value;
+    this.myFieldsEmmiter.emit(value);
+  }
+
   changeSortByDate(value: boolean) {
     this.isSortByDate = value;
     this.isSortByDateEmitter.emit(value);
@@ -69,7 +77,7 @@ export class FieldsFilterComponent implements OnInit {
           fieldType: parseInt((FieldTypeEnum[result.type]), 10),
           created: new Date().toISOString(),
           isStrict: true,
-          ownerId: null
+          ownersId: 1
         };
         this.homeService.addFieldItem(this.newField);
       }

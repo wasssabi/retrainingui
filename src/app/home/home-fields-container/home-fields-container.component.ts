@@ -56,7 +56,7 @@ export class HomeFieldsContainerComponent implements OnInit {
         fieldType: parseInt((FieldTypeEnum[this.addingForm.get('type').value]), 10),
         created: new Date().toISOString(),
         isStrict: true,
-        ownerId: null
+        ownersId: 1
       };
       this.homeService.addFieldItem(this.newField);
       this.addingForm.reset();

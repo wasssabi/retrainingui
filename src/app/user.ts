@@ -8,3 +8,8 @@ export interface LoginUser {
   username: string;
   password: string;
 }
+
+export interface UserBasicData {
+  id: number;
+  username: string;
+}

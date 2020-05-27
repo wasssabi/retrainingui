@@ -17,7 +17,9 @@ export class DisplayFieldsComponent implements OnInit {
   @Input() filterTypes: FieldTypeEnum[];
   @Input() isSortByName: boolean;
   @Input() isSortByDate: boolean;
+  @Input() myFields: boolean;
   modalField: Field;
+  userId: number;
 
   constructor(
     private fieldsService: FieldsService,
@@ -29,11 +31,17 @@ export class DisplayFieldsComponent implements OnInit {
     const refresh = timer(UpdateTime.timerDelay, UpdateTime.timerPeriod);
     refresh.subscribe(result => this.getFields());
     this.searching();
+    this.getCurrentUserId();
   }
 
   getFields(): void {
     this.homeService.requestFields()
     .subscribe(incomingFields => this.fields = incomingFields);
+  }
+
+  getCurrentUserId() {
+    this.homeService.getCurrentUserId()
+    .subscribe(data => this.userId = data);
   }
 
   searching(): string {
