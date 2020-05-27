@@ -1,4 +1,4 @@
 <form class="searchForm">
-  <input #search type="text" placeholder="Search.." name="search" (keydown.enter)="searching(search.value)">
+  <input aria-label="search" #search type="text" placeholder="Search.." name="search" (keydown.enter)="searching(search.value)">
  <button type="button" (click)="searching(search.value)" >Search</button>
 </form>

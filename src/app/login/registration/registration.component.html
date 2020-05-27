@@ -3,17 +3,18 @@
 		<div class="col-md-6 m-auto">
 			<form [formGroup]="registrationForm" (ngSubmit)="signUp()">
 				<fieldset>
+          <legend>Registration</legend>
 					<div class="form-group">
 						<label for="username">
-							<span class="req">* </span> Username: <small>This will be your user name</small> 
+							<span class="req">* </span> Username: <small>This will be your user name</small>
 						</label>
-						<input 
+						<input
 							formControlName="username"
 							type="text"
-							name="username" 
+							name="username"
 							id="username"
-							class="form-control" 
-							placeholder="Enter your username" 
+							class="form-control"
+							placeholder="Enter your username"
 							[ngClass]="{ 'is-invalid':  form.username.touched && form.username.errors }"
 						/>
 						<div *ngIf="form.username.errors?.required" class="invalid-feedback">
@@ -26,13 +27,13 @@
 
 					<div class="form-group">
 						<label for="password"><span class="req">* </span> Password: </label>
-						<input 
+						<input
 						  formControlName="password"
 							class="form-control"
-							type="password" 
-							name="password" 
-							id="password" 
-							placeholder="Enter your password" 
+							type="password"
+							name="password"
+							id="password"
+							placeholder="Enter your password"
 							[ngClass]="{ 'is-invalid': form.password.touched && form.password.errors }"
 						/>
 						<div *ngIf="form.password.errors?.required" class="invalid-feedback">
@@ -48,15 +49,15 @@
 
 					<div class="form-group">
 						<label for="passwordConfirm"><span class="req">* </span> Confirm password: </label>
-						<input 
+						<input
 					  	formControlName="passwordConfirm"
 							class="form-control"
-							type="password" 
-							name="passwordConfirm" 
-							id="passwordConfirm" 
-							placeholder="Enter your password" 
-							[ngClass]="{ 
-								'is-invalid': form.passwordConfirm.touched && (form.passwordConfirm.errors || registrationForm.errors?.passwordConfirmation) 
+							type="password"
+							name="passwordConfirm"
+							id="passwordConfirm"
+							placeholder="Enter your password"
+							[ngClass]="{
+								'is-invalid': form.passwordConfirm.touched && (form.passwordConfirm.errors || registrationForm.errors?.passwordConfirmation)
 							}"
 						/>
 						<div *ngIf="form.passwordConfirm.errors?.required" class="invalid-feedback">
@@ -70,7 +71,7 @@
 						<button [disabled]="registrationForm.invalid" class="btn btn-default" type="submit">Sign up</button>
 					</div>
 				</fieldset>
-			</form>            
+			</form>
 		</div>
 	</div>
 </div>

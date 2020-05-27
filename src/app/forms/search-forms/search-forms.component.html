@@ -1,10 +1,10 @@
 <form label="Search by name" class="search-form">
-    <input 
-    #search 
+    <input aria-label="search"
+    #search
     label="Search by name"
-    type="text" 
-    placeholder="Search.." 
-    name="search" 
+    type="text"
+    placeholder="Search.."
+    name="search"
     (keydown.enter)="searching(search.value)"
   >
   <button label="Search form item button" type="button" (click)="searching(search.value)">Search</button>
