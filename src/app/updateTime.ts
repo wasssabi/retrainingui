@@ -1,4 +1,4 @@
 export const UpdateTime = {
     timerDelay: 100,
-    timerPeriod: 100000
+    timerPeriod: 1000
 };

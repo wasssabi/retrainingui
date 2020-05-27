@@ -60,25 +60,25 @@ export class HomeService {
   addFormItem(item: Form): void {
     this.http.post<Form>(this.mainUrl + this.formsUrl, item).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
   }
 
   addFieldItem(item: Field): void {
     this.http.post<Field>(this.mainUrl + this.fieldsUrl, item).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
   }
 
   deleteFormItem(id: number): void {
     this.http.delete(this.mainUrl + this.formsUrl + id).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
   }
 
   deleteFieldItem(id: number): void {
     this.http.delete(this.mainUrl + this.fieldsUrl + id).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
   }
 
   shareFormItem(id: number): void {
