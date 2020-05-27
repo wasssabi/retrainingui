@@ -30,3 +30,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+h1 {
+  font-size: 1.5em;
+}

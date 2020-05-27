@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 <form role="search" class="searchForm">
   <input #search id="search" type="text" placeholder="Search.." name="search" (keydown.enter)="searching(search.value)">
  <button label="confirm search" type="button" (click)="searching(search.value)" >Search</button>
  <label for="search" class="visuallyhidden">Search by name</label>
 
+=======
+<form class="searchForm">
+  <input aria-label="search" #search type="text" placeholder="Search.." name="search" (keydown.enter)="searching(search.value)">
+ <button type="button" (click)="searching(search.value)" >Search</button>
+>>>>>>> cec8b1b25eb5e03e2ee928fc8bdf4f8123e9a0cf
 </form>
